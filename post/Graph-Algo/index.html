@@ -2,24 +2,23 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Hello Gridea | Chiimoちゃん</title>
+<title>TG8-图论算法 | Chiimoちゃん</title>
 <link rel="shortcut icon" href="https://fyc-1358.github.io/fyc_1358//favicon.ico?v=1614319972047">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fyc-1358.github.io/fyc_1358//styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="Hello Gridea | Chiimoちゃん - Atom Feed" href="https://fyc-1358.github.io/fyc_1358//atom.xml">
+<link rel="alternate" type="application/atom+xml" title="TG8-图论算法 | Chiimoちゃん - Atom Feed" href="https://fyc-1358.github.io/fyc_1358//atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="👏  欢迎使用 Gridea ！
-✍️  Gridea 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...
+    <meta name="description" content="vector&lt;int&gt; G[N];
+bool vis[N];
+int dis[N];
 
-Github
-Gridea 主页
-示例网站
-特性👇
-📝  你可以使用最酷的 Markdo..." />
-    <meta name="keywords" content="" />
+void dijkstra() {
+	priority_queue&lt;pair&lt;int,int&gt; &gt; Q;
+	for(..." />
+    <meta name="keywords" content="图论,算法学习" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -81,52 +80,136 @@ Gridea 主页
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              Hello Gridea
+              TG8-图论算法
             </h2>
             <div class="post-info">
               <span>
-                12-12-2018
+                26-02-2021
               </span>
               <span>
-                2 min read
+                3 min read
               </span>
+              
+                <a href="https://fyc-1358.github.io/fyc_1358/tag/xglM2UxJm/" class="post-tag">
+                  # 图论
+                </a>
+              
+                <a href="https://fyc-1358.github.io/fyc_1358/tag/xhn-EezdHE/" class="post-tag">
+                  # 算法学习
+                </a>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+                <pre><code class="language-cpp">vector&lt;int&gt; G[N];
+bool vis[N];
+int dis[N];
+
+void dijkstra() {
+	priority_queue&lt;pair&lt;int,int&gt; &gt; Q;
+	for(int i = 0; i &lt; n; i++) d[i] = INF;
+	d[1] = 0;
+	Q.push(make_pair(-d[0], 0));
+	while(!Q.empty()) {
+		int x = Q.top().second; Q.pop();
+		if(vis[x]) continue;
+		vis[x] = 1;
+		
+		for(int i=0;i&lt;G[x].size();i++) {
+			int y=G[x][i];
+			if(d[y] &gt; d[x] + w[x][y]){
+				d[y] = d[x] + w[x][y];
+				Q.push(make_pair(-d[y], y));
+			}
+		}
+	}
+}
+
+void spfa() {
+	for(int i = 0; i &lt; n; i++) d[i] = INF;
+	d[1] = 0;
+	queue&lt;int&gt; Q;
+	Q.push(1);
+	vis[1] = 1;
+	while(!Q.empty()) {
+		int x = Q.front(); Q.pop();
+		vis[x] = 0;
+		
+		for(int i=0;i&lt;G[x].size();i++){
+			int y = G[x][i];
+			if(d[y] &gt; d[x] + w[x][y]){
+				d[y] = d[x] + w[x][y];
+				if(!vis[y])
+					Q.push(y), vis[y] = 1;
+			}
+		}
+	}
+}
+
+struct Edge{
+	int u, v, w;
+};
+Edge e[M];
+bool cmp(const Edge&amp; x, const Edge&amp; y) {
+	return x.w &lt; y.w;
+}
+int fa[N];
+int find(int x) {return x == fa[x] ? x : fa[x] = find(fa[x]);}
+void kruskal() {
+	int ans = 0;
+	sort(e, e + m, cmp);
+	for(int i=1;i&lt;=n;i++) fa[i] = i;
+	for(int i=0;i&lt;m;i++) {
+		int u = e[i].u, v = e[i].v;
+		if(find(u) != find(v)) {
+			ans += e[i].w;
+			
+			int _u = find(u), _v = find(v);
+			fa[_u] = _v;
+		}
+	}
+}
+
+vector&lt;int&gt; G[N];
+int deg[N];
+queue&lt;int&gt; Q;
+int topo[N], cnt;
+
+void toposort() {
+	for(int i=1;i&lt;=n;i++) {
+		for(int j=0;j&lt;G[i].size();j++) {
+			deg[G[i][j]] ++;
+		}
+	}
+	for(int i=1;i&lt;=n;i++)
+		if(deg[i] == 0)
+			Q.push(i);
+	
+	while(!Q.empty()) {
+		int x = Q.front(); Q.pop();
+		cnt ++;
+		topo[cnt] = x;
+		for(int i=0;i&lt;G[x];size();i++) {
+			int y=G[x][i];
+			deg[y] --;
+			if(deg[y] == 0) {
+				Q.push(y);
+			}
+		}
+	}
+}
+</code></pre>
+<ol>
+<li>dijkstra</li>
+<li>SPFA<s>他死了</s></li>
+<li>kruskal</li>
+<li>toposort</li>
+</ol>
 
               </div>
               <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E7%89%B9%E6%80%A7">特性👇</a></li>
-</ul>
-</li>
-</ul>
-
+                
               </div>
             </div>
           </article>

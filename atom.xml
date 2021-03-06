@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://fyc-1358.github.io/fyc_1358/</id>
     <title>Chiimoちゃん</title>
-    <updated>2021-02-27T13:25:34.021Z</updated>
+    <updated>2021-03-06T13:03:32.226Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://fyc-1358.github.io/fyc_1358/"/>
     <link rel="self" href="https://fyc-1358.github.io/fyc_1358/atom.xml"/>
@@ -10,6 +10,20 @@
     <logo>https://fyc-1358.github.io/fyc_1358/images/avatar.png</logo>
     <icon>https://fyc-1358.github.io/fyc_1358/favicon.ico</icon>
     <rights>All rights reserved 2021, Chiimoちゃん</rights>
+    <entry>
+        <title type="html"><![CDATA[模拟退火学习笔记]]></title>
+        <id>https://fyc-1358.github.io/fyc_1358/post/simulated-annealing-note/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/post/simulated-annealing-note/">
+        </link>
+        <updated>2021-03-06T13:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[模拟退火学习笔记]]></title>
+        <id>https://fyc-1358.github.io/fyc_1358/post/mo-ni-tui-huo-xue-xi-bi-ji/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/post/mo-ni-tui-huo-xue-xi-bi-ji/">
+        </link>
+        <updated>2021-03-06T12:50:14.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[Ynoi2011]初始化 题解]]></title>
         <id>https://fyc-1358.github.io/fyc_1358/post/Ynoi2011-initialization/</id>

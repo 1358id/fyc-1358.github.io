@@ -1016,3 +1016,10 @@ td {
         color: #862e9c;
       }
     
+      <style>
+  body {
+    cursor: url(https://www.12cow.com/wp-content/uploads/2020/02/mouse.cur),auto;
+    background-color: @theme_background;
+  }
+</style>
+    

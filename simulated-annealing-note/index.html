@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>模拟退火学习笔记 | Chiimoちゃん</title>
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://fyc-1358.github.io/fyc_1358//favicon.ico?v=1615036453497">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://fyc-1358.github.io/fyc_1358//styles/main.css">
+
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://fyc-1358.github.io/fyc_1358/">Chiimoちゃん</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/fyc_1358" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/fyc_1358/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/fyc_1358/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>模拟退火学习笔记</h1>
+            <p class="article-meta">
+              06-03-2021
+              
+                <a href="https://fyc-1358.github.io/fyc_1358/BGLboKGp_/" class="badge secondary">
+                  模拟退火
+                </a>
+              
+                <a href="https://fyc-1358.github.io/fyc_1358/xhn-EezdHE/" class="badge secondary">
+                  算法学习
+                </a>
+              
+            </p>
+            
+            <div class="post-content">
+              <p>此处我们以 <a href="https://www.luogu.com.cn/problem/P1337">[JSOI2004]平衡点</a> 为例。<br>
+这题是叫你在一个二维平面上找出若干个力的平衡点。<br>
+由于不知道这个点在何处，所以考虑乱猜。<br>
+但猜完以后我们需要找更优的解，这是可以考虑随机一个。<br>
+这样的话，设猜的点坐标为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo separator="true">,</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x,y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> ，随机的新点坐标为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">x_1,y_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 。<br>
+则如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">x_1,y_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 比 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo separator="true">,</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x,y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> 更优的话，我们就接受这个新的点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">x_1,y_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 为当前最优解。<br>
+如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">x_1,y_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 比不过 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo separator="true">,</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x,y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> ，为防止解就死在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo separator="true">,</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x,y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> 周围的一个小范围内，我们还是要有一定概率接受 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">x_1,y_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 这个点的。但是随着时间的推移，我们越来越接近最优解时，接受一个不太优秀的点就要谨慎了。这就是所谓的“降温”操作。<br>
+等到温度降到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 时，一切都结束了。</p>
+<p>代码：</p>
+<pre><code class="language-cpp">#include&lt;stdio.h&gt;
+#include&lt;time.h&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;math.h&gt;
+#define reg register
+#define ri reg int
+#define rep(i, x, y) for(ri i = x; i &lt;= y; ++i)
+#define nrep(i, x, y) for(ri i = x; i &gt;= y; --i)
+#define DEBUG 1
+#define delta 0.996
+#define ll long long
+#define il inline
+#define max(i, j) (i) &gt; (j) ? (i) : (j)
+#define min(i, j) (i) &lt; (j) ? (i) : (j)
+#define read(i) io.READ(i)
+#define print(i) io.WRITE(i)
+#define push(i) io.PUSH(i)
+struct IO {
+#define MAXSIZE (1 &lt;&lt; 20)
+#define isdigit(x) (x &gt;= '0' &amp;&amp; x &lt;= '9')
+  char buf[MAXSIZE], *p1, *p2;
+  char pbuf[MAXSIZE], *pp;
+#if DEBUG
+#else
+  IO() : p1(buf), p2(buf), pp(pbuf) {}
+  ~IO() {
+    fwrite(pbuf, 1, pp - pbuf, stdout);
+  }
+#endif
+  inline char gc() {
+#if DEBUG
+    return getchar();
+#endif
+    if(p1 == p2)
+      p2 = (p1 = buf) + fread(buf, 1, MAXSIZE, stdin);
+    return p1 == p2 ? ' ' : *p1++;
+  }
+  inline bool blank(char ch) {
+    return ch == ' ' || ch == '\n' || ch == '\r' || ch == '\t';
+  }
+  template &lt;class T&gt;
+  inline void READ(T &amp;x) {
+    register double tmp = 1;
+    register bool sign = 0;
+    x = 0;
+    register char ch = gc();
+    for(; !isdigit(ch); ch = gc())
+      if(ch == '-') sign = 1;
+    for(; isdigit(ch); ch = gc())
+      x = x * 10 + (ch - '0');
+    if(ch == '.')
+      for(ch = gc(); isdigit(ch); ch = gc())
+        tmp /= 10.0, x += tmp * (ch - '0');
+    if(sign) x = -x;
+  }
+  inline void READ(char *s) {
+    register char ch = gc();
+    for(; blank(ch); ch = gc());
+    for(; !blank(ch); ch = gc())
+      *s++ = ch;
+    *s = 0;
+  }
+  inline void READ(char &amp;c) {
+    for(c = gc(); blank(c); c = gc());
+  }
+  inline void PUSH(const char &amp;c) {
+#if DEBUG
+    putchar(c);
+#else
+    if(pp - pbuf == MAXSIZE) {
+      fwrite(pbuf, 1, MAXSIZE, stdout);
+      pp = pbuf;
+    }
+    *pp++ = c;
+#endif
+  }
+  template &lt;class T&gt;
+  inline void WRITE(T x) {
+    if(x &lt; 0) {
+      x = -x;
+      PUSH('-');
+    }
+    static T sta[35];
+    T top = 0;
+    do {
+      sta[top++] = x % 10;
+      x /= 10;
+    } while(x);
+    while(top)
+      PUSH(sta[--top] + '0');
+  }
+  template &lt;class T&gt;
+  inline void WRITE(T x, char lastChar) {
+    WRITE(x);
+    PUSH(lastChar);
+  }
+} io;
+int n;
+struct node {
+  int x, y, w;
+} obj[2010];
+double ansx, ansy, answ;
+double calc(double x, double y) { /*x, y是X点的坐标*/
+  double r = 0/*合力*/, dx/*横轴上的合力*/, dy/*纵轴上的合力*/;
+  rep(i, 1, n) {
+    dx = x - obj[i].x;
+    dy = y - obj[i].y;
+    r += sqrt(dx * dx + dy * dy) * obj[i].w; /*计算每一个质点产生的力*/
+  }
+  return r;
+}
+void anneal() { 
+  double t = 3000; /*初始温度(可能要调)*/
+  while(t &gt; 1e-15) { 
+    double rx = ansx + (rand() * 2 - RAND_MAX) * t;
+    double ry = ansy + (rand() * 2 - RAND_MAX) * t;
+    /*随机一个X点*/ 
+    double rw = calc(rx, ry);
+    /*计算这个点的答案*/ 
+    if (rw - answ &lt; 0) { /*当前答案更优,那么无条件接受*/
+      ansx = rx;
+      ansy = ry;
+      answ = rw;
+    } else if(exp((-rw + answ) / t) * RAND_MAX &gt; rand()) { 
+      ansx = rx;
+      ansy = ry;
+    }
+    t *= delta; /*降温*/
+  }
+}
+int main() {
+  read(n);
+  rep(i, 1, n) 
+    read(obj[i].x), read(obj[i].y), read(obj[i].w), ansx += obj[i].x, ansy += obj[i].y;
+  ansx /= n;
+  ansy /= n;
+  /*以平均数为初始答案*/
+  answ = calc(ansx, ansy);
+  while((double)clock() / CLOCKS_PER_SEC &lt; 0.8) anneal(); /*模拟退火*/
+  printf(&quot;%.3lf %.3lf\n&quot;, ansx, ansy);
+  return 0;
+}
+</code></pre>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://fyc-1358.github.io/fyc_1358/Ynoi2011-initialization/">
+                <h3 class="post-title">
+                  [Ynoi2011]初始化 题解
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://fyc-1358.github.io/fyc_1358//images/avatar.png?v=1615036453497" class="no-responsive avatar">
+    <div class="text-muted">温故而知新</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/simulated-annealing-note/">模拟退火学习笔记</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/Ynoi2011-initialization/">[Ynoi2011]初始化 题解</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/testing_ground/">洛谷原试炼场</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/csp-j-2020/">CSP-J 2020</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/Graph-Algo/">TG8-图论算法</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/cuo-wu-he-ji/">错误合集</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/chiimos-code-style-for-oi/">Chiimo&#39;s Code Style for OI</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/about/">关于</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/hello-gridea/">Hello Gridea</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/test/">测试</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://fyc-1358.github.io/fyc_1358/BGLboKGp_/" class="badge secondary">
+          模拟退火
+        </a>
+      
+        <a href="https://fyc-1358.github.io/fyc_1358/xhn-EezdHE/" class="badge warning">
+          算法学习
+        </a>
+      
+        <a href="https://fyc-1358.github.io/fyc_1358/PlHhUicaj/" class="badge ">
+          分块
+        </a>
+      
+        <a href="https://fyc-1358.github.io/fyc_1358/GTvbd7_vVt/" class="badge success">
+          Ynoi
+        </a>
+      
+        <a href="https://fyc-1358.github.io/fyc_1358/a6vZMeH5um/" class="badge success">
+          数据结构
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    积土成山，风雨兴焉；积水成渊，蛟龙生焉。 | <a class="rss" href="https://fyc-1358.github.io/fyc_1358//atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+
+  </body>
+</html>

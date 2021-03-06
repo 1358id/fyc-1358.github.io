@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>CSP-J 2020 | Chiimoちゃん</title>
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://fyc-1358.github.io/fyc_1358//favicon.ico?v=1615036453497">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://fyc-1358.github.io/fyc_1358//styles/main.css">
+
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://fyc-1358.github.io/fyc_1358/">Chiimoちゃん</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/fyc_1358" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/fyc_1358/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/fyc_1358/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>CSP-J 2020</h1>
+            <p class="article-meta">
+              26-02-2021
+              
+            </p>
+            
+            <div class="post-content">
+              <h1 id="t1">T1</h1>
+<p>入门题。<br>
+如果输入的这个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 是奇数的话，那么肯定有一个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>0</mn></msup></mrow><annotation encoding="application/x-tex">2^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span> 在拆分里面，就不成立了。<br>
+否则就把这个数转为二进制，碰到个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 就输出。<br>
+或者说，从大到小枚举 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 的整数次幂，碰到一个可以用的就从原来的数里减掉，输出。<br>
+打了个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 的次幂的表，实际上打不打无所谓。<br>
+期望得分 100。</p>
+<h1 id="t2">T2</h1>
+<p>到死都没想到用桶来装。<br>
+虽然他说成绩不超 600 。<br>
+我是进来一个数就插在当前的表里，然后搞出分数线。<br>
+然后我搞了个链(?)来存，优化了一下常数，但没用。<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 想搞过 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span> 还是很艰难的。<br>
+期望得分 85。<br>
+正解使用桶装数据，可以做到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> 的水平。</p>
+<h1 id="t3">T3</h1>
+<p>一看就是大模拟。<br>
+不会。<br>
+20 分走人。<br>
+的确， Subtask 1 蛮好写的，写一面的判断语句就好了。<br>
+其他的一概不会。</p>
+<h1 id="t4">T4</h1>
+<p>入门 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>D</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">DP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span>。<br>
+考虑只能上，下，右而不能左，所以可以以列来划分状态。<br>
+每一个格子先从左边继承而来，然后往上走一遍，往下走一遍，就可以得到当前位置的最大值。<br>
+本来写了个滚动数组的，结果调着出问题了，所以又改用了二维数组。<br>
+好像真的要开 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><mi>n</mi><mi>g</mi><mtext>  </mtext><mi>l</mi><mi>o</mi><mi>n</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">long\;long</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span></span></span></span>。<br>
+期望得分100。</p>
+<p>总结<br>
+这么烂的成绩。400 都没到。可以退役了。<br>
+测出来 100 + 90 + 20 + 100 = 310。<br>
+T2数据真的水。</p>
+<p>代码就不贴了。</p>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://fyc-1358.github.io/fyc_1358/cuo-wu-he-ji/">
+                <h3 class="post-title">
+                  错误合集
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://fyc-1358.github.io/fyc_1358//images/avatar.png?v=1615036453497" class="no-responsive avatar">
+    <div class="text-muted">温故而知新</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/simulated-annealing-note/">模拟退火学习笔记</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/Ynoi2011-initialization/">[Ynoi2011]初始化 题解</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/testing_ground/">洛谷原试炼场</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/csp-j-2020/">CSP-J 2020</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/Graph-Algo/">TG8-图论算法</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/cuo-wu-he-ji/">错误合集</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/chiimos-code-style-for-oi/">Chiimo&#39;s Code Style for OI</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/about/">关于</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/hello-gridea/">Hello Gridea</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/test/">测试</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://fyc-1358.github.io/fyc_1358/BGLboKGp_/" class="badge success">
+          模拟退火
+        </a>
+      
+        <a href="https://fyc-1358.github.io/fyc_1358/xhn-EezdHE/" class="badge secondary">
+          算法学习
+        </a>
+      
+        <a href="https://fyc-1358.github.io/fyc_1358/PlHhUicaj/" class="badge secondary">
+          分块
+        </a>
+      
+        <a href="https://fyc-1358.github.io/fyc_1358/GTvbd7_vVt/" class="badge secondary">
+          Ynoi
+        </a>
+      
+        <a href="https://fyc-1358.github.io/fyc_1358/a6vZMeH5um/" class="badge warning">
+          数据结构
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    积土成山，风雨兴焉；积水成渊，蛟龙生焉。 | <a class="rss" href="https://fyc-1358.github.io/fyc_1358//atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+
+  </body>
+</html>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://fyc-1358.github.io/fyc_1358/</id>
     <title>Chiimoちゃん</title>
-    <updated>2021-03-06T13:03:32.226Z</updated>
+    <updated>2021-03-06T13:14:38.347Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://fyc-1358.github.io/fyc_1358/"/>
     <link rel="self" href="https://fyc-1358.github.io/fyc_1358/atom.xml"/>
@@ -12,50 +12,43 @@
     <rights>All rights reserved 2021, Chiimoちゃん</rights>
     <entry>
         <title type="html"><![CDATA[模拟退火学习笔记]]></title>
-        <id>https://fyc-1358.github.io/fyc_1358/post/simulated-annealing-note/</id>
-        <link href="https://fyc-1358.github.io/fyc_1358/post/simulated-annealing-note/">
+        <id>https://fyc-1358.github.io/fyc_1358/simulated-annealing-note/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/simulated-annealing-note/">
         </link>
         <updated>2021-03-06T13:00:00.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[模拟退火学习笔记]]></title>
-        <id>https://fyc-1358.github.io/fyc_1358/post/mo-ni-tui-huo-xue-xi-bi-ji/</id>
-        <link href="https://fyc-1358.github.io/fyc_1358/post/mo-ni-tui-huo-xue-xi-bi-ji/">
-        </link>
-        <updated>2021-03-06T12:50:14.000Z</updated>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[[Ynoi2011]初始化 题解]]></title>
-        <id>https://fyc-1358.github.io/fyc_1358/post/Ynoi2011-initialization/</id>
-        <link href="https://fyc-1358.github.io/fyc_1358/post/Ynoi2011-initialization/">
+        <id>https://fyc-1358.github.io/fyc_1358/Ynoi2011-initialization/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/Ynoi2011-initialization/">
         </link>
         <updated>2021-02-27T13:00:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[洛谷原试炼场]]></title>
-        <id>https://fyc-1358.github.io/fyc_1358/post/testing_ground/</id>
-        <link href="https://fyc-1358.github.io/fyc_1358/post/testing_ground/">
+        <id>https://fyc-1358.github.io/fyc_1358/testing_ground/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/testing_ground/">
         </link>
         <updated>2021-02-26T06:00:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[CSP-J 2020]]></title>
-        <id>https://fyc-1358.github.io/fyc_1358/post/csp-j-2020/</id>
-        <link href="https://fyc-1358.github.io/fyc_1358/post/csp-j-2020/">
+        <id>https://fyc-1358.github.io/fyc_1358/csp-j-2020/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/csp-j-2020/">
         </link>
         <updated>2021-02-26T05:58:38.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[错误合集]]></title>
-        <id>https://fyc-1358.github.io/fyc_1358/post/cuo-wu-he-ji/</id>
-        <link href="https://fyc-1358.github.io/fyc_1358/post/cuo-wu-he-ji/">
+        <id>https://fyc-1358.github.io/fyc_1358/cuo-wu-he-ji/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/cuo-wu-he-ji/">
         </link>
         <updated>2021-02-26T05:50:56.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Chiimo's Code Style for OI]]></title>
-        <id>https://fyc-1358.github.io/fyc_1358/post/chiimos-code-style-for-oi/</id>
-        <link href="https://fyc-1358.github.io/fyc_1358/post/chiimos-code-style-for-oi/">
+        <id>https://fyc-1358.github.io/fyc_1358/chiimos-code-style-for-oi/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/chiimos-code-style-for-oi/">
         </link>
         <updated>2021-02-26T05:38:19.000Z</updated>
     </entry>

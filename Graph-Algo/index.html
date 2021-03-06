@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>标签列表 | Chiimoちゃん</title>
+<title>TG8-图论算法 | Chiimoちゃん</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -23,6 +23,7 @@
 
   </head>
   <body>
+  
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
     <h3><a href="https://fyc-1358.github.io/fyc_1358/">Chiimoちゃん</a></h3>
@@ -71,32 +72,136 @@
     <div id="top" class="row site">
       <div class="sm-12 md-8 col">
         <div class="paper">
-          <h2 class="tag-list-title">标签列表</h2>
-          <div class="row tags-container">
+          <article class="article">
+            <h1>TG8-图论算法</h1>
+            <p class="article-meta">
+              26-02-2021
+              
+                <a href="https://fyc-1358.github.io/fyc_1358/xglM2UxJm/" class="badge warning">
+                  图论
+                </a>
+              
+                <a href="https://fyc-1358.github.io/fyc_1358/xhn-EezdHE/" class="badge ">
+                  算法学习
+                </a>
+              
+            </p>
             
-              <a href="https://fyc-1358.github.io/fyc_1358/BGLboKGp_/" class="badge secondary">
-                模拟退火
-              </a>
-            
-              <a href="https://fyc-1358.github.io/fyc_1358/xhn-EezdHE/" class="badge warning">
-                算法学习
-              </a>
-            
-              <a href="https://fyc-1358.github.io/fyc_1358/PlHhUicaj/" class="badge secondary">
-                分块
-              </a>
-            
-              <a href="https://fyc-1358.github.io/fyc_1358/GTvbd7_vVt/" class="badge secondary">
-                Ynoi
-              </a>
-            
-              <a href="https://fyc-1358.github.io/fyc_1358/a6vZMeH5um/" class="badge success">
-                数据结构
-              </a>
-            
-          </div>
+            <div class="post-content">
+              <pre><code class="language-cpp">vector&lt;int&gt; G[N];
+bool vis[N];
+int dis[N];
+
+void dijkstra() {
+	priority_queue&lt;pair&lt;int,int&gt; &gt; Q;
+	for(int i = 0; i &lt; n; i++) d[i] = INF;
+	d[1] = 0;
+	Q.push(make_pair(-d[0], 0));
+	while(!Q.empty()) {
+		int x = Q.top().second; Q.pop();
+		if(vis[x]) continue;
+		vis[x] = 1;
+		
+		for(int i=0;i&lt;G[x].size();i++) {
+			int y=G[x][i];
+			if(d[y] &gt; d[x] + w[x][y]){
+				d[y] = d[x] + w[x][y];
+				Q.push(make_pair(-d[y], y));
+			}
+		}
+	}
+}
+
+void spfa() {
+	for(int i = 0; i &lt; n; i++) d[i] = INF;
+	d[1] = 0;
+	queue&lt;int&gt; Q;
+	Q.push(1);
+	vis[1] = 1;
+	while(!Q.empty()) {
+		int x = Q.front(); Q.pop();
+		vis[x] = 0;
+		
+		for(int i=0;i&lt;G[x].size();i++){
+			int y = G[x][i];
+			if(d[y] &gt; d[x] + w[x][y]){
+				d[y] = d[x] + w[x][y];
+				if(!vis[y])
+					Q.push(y), vis[y] = 1;
+			}
+		}
+	}
+}
+
+struct Edge{
+	int u, v, w;
+};
+Edge e[M];
+bool cmp(const Edge&amp; x, const Edge&amp; y) {
+	return x.w &lt; y.w;
+}
+int fa[N];
+int find(int x) {return x == fa[x] ? x : fa[x] = find(fa[x]);}
+void kruskal() {
+	int ans = 0;
+	sort(e, e + m, cmp);
+	for(int i=1;i&lt;=n;i++) fa[i] = i;
+	for(int i=0;i&lt;m;i++) {
+		int u = e[i].u, v = e[i].v;
+		if(find(u) != find(v)) {
+			ans += e[i].w;
+			
+			int _u = find(u), _v = find(v);
+			fa[_u] = _v;
+		}
+	}
+}
+
+vector&lt;int&gt; G[N];
+int deg[N];
+queue&lt;int&gt; Q;
+int topo[N], cnt;
+
+void toposort() {
+	for(int i=1;i&lt;=n;i++) {
+		for(int j=0;j&lt;G[i].size();j++) {
+			deg[G[i][j]] ++;
+		}
+	}
+	for(int i=1;i&lt;=n;i++)
+		if(deg[i] == 0)
+			Q.push(i);
+	
+	while(!Q.empty()) {
+		int x = Q.front(); Q.pop();
+		cnt ++;
+		topo[cnt] = x;
+		for(int i=0;i&lt;G[x];size();i++) {
+			int y=G[x][i];
+			deg[y] --;
+			if(deg[y] == 0) {
+				Q.push(y);
+			}
+		}
+	}
+}
+</code></pre>
+<ol>
+<li>dijkstra</li>
+<li>SPFA<s>他死了</s></li>
+<li>kruskal</li>
+<li>toposort</li>
+</ol>
+
+            </div>
+          </article>
         </div>
+        <div class="paper" data-aos="fade-in">
+          
+        </div>
+        
       </div>
+
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
     <img src="https://fyc-1358.github.io/fyc_1358//images/avatar.png?v=1615036453497" class="no-responsive avatar">
@@ -199,15 +304,15 @@
           算法学习
         </a>
       
-        <a href="https://fyc-1358.github.io/fyc_1358/PlHhUicaj/" class="badge success">
+        <a href="https://fyc-1358.github.io/fyc_1358/PlHhUicaj/" class="badge secondary">
           分块
         </a>
       
-        <a href="https://fyc-1358.github.io/fyc_1358/GTvbd7_vVt/" class="badge success">
+        <a href="https://fyc-1358.github.io/fyc_1358/GTvbd7_vVt/" class="badge ">
           Ynoi
         </a>
       
-        <a href="https://fyc-1358.github.io/fyc_1358/a6vZMeH5um/" class="badge secondary">
+        <a href="https://fyc-1358.github.io/fyc_1358/a6vZMeH5um/" class="badge warning">
           数据结构
         </a>
       
@@ -217,7 +322,8 @@
     积土成山，风雨兴焉；积水成渊，蛟龙生焉。 | <a class="rss" href="https://fyc-1358.github.io/fyc_1358//atom.xml" target="_blank">RSS</a>
   </div>
 </div>
-  
+
+
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

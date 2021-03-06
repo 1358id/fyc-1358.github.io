@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Chiimo&#39;s Code Style for OI | Chiimoちゃん</title>
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://fyc-1358.github.io/fyc_1358//favicon.ico?v=1615036453497">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://fyc-1358.github.io/fyc_1358//styles/main.css">
+
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://fyc-1358.github.io/fyc_1358/">Chiimoちゃん</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/fyc_1358" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/fyc_1358/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/fyc_1358/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>Chiimo&#39;s Code Style for OI</h1>
+            <p class="article-meta">
+              26-02-2021
+              
+            </p>
+            
+            <div class="post-content">
+              <h1 id="甲-概览">甲 概览</h1>
+<p>所有的 <code>#include</code> 指令必须放置于整个程序开头。</p>
+<p>不应该使用 <code>using namespace std;</code>。</p>
+<p>在必要时应该使用 <code>using foo::bar;</code>。</p>
+<p><code>main</code> 函数应该放置于整个程序末尾。</p>
+<p>应当使用 <code>int</code> 代替 <code>bool</code> 表示逻辑值（空间真不够除外~~，但正常题目不会那么毒瘤罢~~）。</p>
+<h1 id="乙-预编译指令">乙 预编译指令</h1>
+<p><code>#include</code> 中，C 标准库头文件必须使用 <code>.h</code> 后缀，而不是 <code>c</code> 前缀（旧习难改）。</p>
+<p>尽量不使用不带 <code>.h</code> 后缀的库文件。</p>
+<p><code>#include</code> 中，C 标准库头文件应该放置于 C++ 标准库头文件前，其它头文件（如果有）应放置于最后。</p>
+<p>尽量使用 <code>#define</code> 声明常量与常用函数（比如<code>max</code>,<code>min</code>,<code>swap</code>之类的）。</p>
+<p>可以使用 <code>#include &lt;foo&gt;</code> 时绝不使用 <code>#include &quot;foo&quot;</code>。</p>
+<h1 id="丙-缩进">丙 缩进</h1>
+<p>对于每个代码块，使用 2 空格或等长的 Tab 缩进。</p>
+<h1 id="丁-花括号">丁 花括号</h1>
+<p>花括号必须遵循「花括号不换行」的原则。</p>
+<p>对于「花括号不换行」，左花括号的左边必须有且仅有一个空格。</p>
+<p>所有右花括号必须与上一级代码块的缩进相同。</p>
+<pre><code>if(e) {
+  sth;
+} else {
+  sth;
+}
+</code></pre>
+<h1 id="戊-行">戊 行</h1>
+<p>除 <code>for</code> 中的三个语句外，每行不能有超过一个语句。如果需要一行内求值多个表达式，可以使用等效的逗号表达式替代。</p>
+<p>多个意义独立的代码块之间应该用空行隔开。</p>
+<p>右花括号前不应该有多余的空行。</p>
+<p>不应该有两个连续的空行。</p>
+<p>非空行尾不应该有多余的空格。</p>
+<p>函数、成员函数、结构体、全局变量块之间可以用空行隔开。</p>
+<h1 id="己-函数">己 函数</h1>
+<p><code>main</code> 函数的返回值类型必须是 <code>int</code>，可以省略 <code>return 0;</code>。</p>
+<p>空函数体可以使用 <code>{}</code>。</p>
+<p>传参时，应该根据实际需要使用「全局变量传递」和「值传递」。</p>
+<h1 id="庚-变量">庚 变量</h1>
+<p>尽量少使用全局变量。</p>
+<p>局部变量应当在函数开头定义（<code>for</code>语句的循环变量除外），变量名不应该与上一个块中的变量重名，尽量不与全局变量重名。</p>
+<h1 id="辛-空格">辛 空格</h1>
+<p>逗号 , 与 for 中的分号 ; 后面必须有一个空格，前面不能有空格。</p>
+<p>左圆（方）括号后、右圆（方）括号前不可以加一个空格。</p>
+<p>双目运算符、三目运算符的两侧必须有一个空格。</p>
+<p>单目运算符的两侧不能有空格。</p>
+<p>冒号的两侧必须有一个空格。</p>
+<pre><code>struct Edge {
+    int x;
+    Edge() : x(0) {}
+}
+</code></pre>
+<p>流程控制关键字之后，函数名之后，左圆括号前均不能有空格。</p>
+<p>对于「花括号不换行」，<code>do-while</code> 结构的 <code>do</code> 之后，左花括号前必须有一个空格，<code>while</code> 前必须有一个空格。</p>
+<p>模板参数表中，如果右方括号前不得不加一个空格，则可以在对应的左方括号后加一个空格，为了对称。</p>
+<p>.、-&gt;、:: 的两边不能有空格。</p>
+<h1 id="壬-指针与引用">壬 指针与引用</h1>
+<p>绝对不使用引用。</p>
+<p>在描述类型名时，指针符号 <code>*</code> 与左侧的类型名之间必须有一个空格，与右侧的其它关键字之间不能有空格，如 <code>char *const</code>。</p>
+<p>在定义变量、函数返回值、参数时，指针符号 <code>*</code> 与左侧的类型名之间必须有一个空格，与右侧的变量、函数、参数名之间不能有空格。</p>
+<h1 id="癸-其他">癸 其他</h1>
+<p>注释只使用 <code>/* */</code> 类型，最好不与代码写在一行。</p>
+<p>输入时的 <code>for</code> 循环最好压成一行，但如果实在太长可以换一行写。</p>
+<p>尽量不使用 <code>STL</code> 与其他 C++ 的奇奇怪怪的东西，按照 C 标准来。</p>
+<h1 id="example-code">Example Code</h1>
+<pre><code class="language-cpp">#include&lt;stdio.h&gt;
+#include&lt;iostream&gt;
+#define reg register
+#define ri reg int
+#define rep(i, x, y) for(ri i = x; i &lt;= y; ++i)
+#define nrep(i, x, y) for(ri i = x; i &gt;= y; --i)
+#define DEBUG 1
+#define ll long long
+#define MAXN 500010
+#define il inline
+#define mid ((l + r) &gt;&gt; 1)
+#define lson rt &lt;&lt; 1, l, mid
+#define rson rt &lt;&lt; 1 | 1, mid + 1, r
+#define len (r - l + 1)
+#define max(i, j) (i) &gt; (j) ? (i) : (j)
+#define min(i, j) (i) &lt; (j) ? (i) : (j)
+#define read(i) io.READ(i)
+#define print(i) io.WRITE(i)
+#define push(i) io.PUSH(i)
+using namespace std;
+struct IO {
+#define MAXSIZE (1 &lt;&lt; 20)
+#define isdigit(x) (x &gt;= '0' &amp;&amp; x &lt;= '9')
+  char buf[MAXSIZE], *p1, *p2;
+  char pbuf[MAXSIZE], *pp;
+#if DEBUG
+#else
+  IO() : p1(buf), p2(buf), pp(pbuf) {}
+  ~IO() {
+    fwrite(pbuf, 1, pp - pbuf, stdout);
+  }
+#endif
+  il char gc() {
+#if DEBUG
+    return getchar();
+#endif
+    if(p1 == p2)
+      p2 = (p1 = buf) + fread(buf, 1, MAXSIZE, stdin);
+    return p1 == p2 ? ' ' : *p1++;
+  }
+  il bool blank(char ch) {
+    return ch == ' ' || ch == '\n' || ch == '\r' || ch == '\t';
+  }
+  template &lt;class T&gt;
+  il void READ(T &amp;x) {
+    register double tmp = 1;
+    register bool sign = 0;
+    x = 0;
+    register char ch = gc();
+    for(; !isdigit(ch); ch = gc())
+      if(ch == '-') sign = 1;
+    for(; isdigit(ch); ch = gc())
+      x = x * 10 + (ch - '0');
+    if(ch == '.')
+      for(ch = gc(); isdigit(ch); ch = gc())
+        tmp /= 10.0, x += tmp * (ch - '0');
+    if(sign) x = -x;
+  }
+  il void READ(char *s) {
+    register char ch = gc();
+    for(; blank(ch); ch = gc());
+    for(; !blank(ch); ch = gc())
+      *s++ = ch;
+    *s = 0;
+  }
+  il void READ(char &amp;c) {
+    for(c = gc(); blank(c); c = gc());
+  }
+  il void PUSH(const char &amp;c) {
+#if DEBUG
+    putchar(c);
+#else
+    if(pp - pbuf == MAXSIZE) {
+      fwrite(pbuf, 1, MAXSIZE, stdout);
+      pp = pbuf;
+    }
+    *pp++ = c;
+#endif
+  }
+  template &lt;class T&gt;
+  il void WRITE(T x) {
+    if(x &lt; 0) {
+      x = -x;
+      PUSH('-');
+    }
+    static T sta[35];
+    T top = 0;
+    do {
+      sta[top++] = x % 10;
+      x /= 10;
+    } while(x);
+    while(top)
+      PUSH(sta[--top] + '0');
+  }
+  template &lt;class T&gt;
+  il void WRITE(T x, char lastChar) {
+    WRITE(x);
+    PUSH(lastChar);
+  }
+} io;
+ll n, m;
+struct Edge {
+  ll next, to;
+} h[MAXN &lt;&lt; 1];
+ll head[MAXN &lt;&lt; 1];
+ll tot, to[MAXN], w[MAXN], wt[MAXN];
+ll a[MAXN &lt;&lt; 2], laz[MAXN &lt;&lt; 2];
+ll son[MAXN], id[MAXN], fa[MAXN], cnt, dep[MAXN], siz[MAXN], top[MAXN];
+ll res;
+il void add(ll u, ll v) {
+  h[++tot].next = head[u];
+  h[tot].to = v;
+  head[u] = tot;
+}
+il void pushdown(ll rt, ll lenn) {
+  laz[rt &lt;&lt; 1] += laz[rt];
+  laz[rt &lt;&lt; 1 | 1] += laz[rt];
+  a[rt &lt;&lt; 1] += laz[rt] * (lenn - (lenn &gt;&gt; 1));
+  a[rt &lt;&lt; 1 | 1] += laz[rt] * (lenn &gt;&gt; 1);
+  laz[rt] = 0;
+}
+il void build(ll rt, ll l, ll r) {
+  if(l == r) {
+    a[rt] = wt[l];
+    return;
+  }
+  build(lson);
+  build(rson);
+  a[rt] = (a[rt &lt;&lt; 1] + a[rt &lt;&lt; 1 | 1]);
+}
+il void query(ll rt, ll l, ll r, ll s, ll t) {
+  if(s &lt;= l &amp;&amp; r &lt;= t) {
+    res += a[rt];
+    return;
+  } else {
+    if(laz[rt]) pushdown(rt, len);
+    if(s &lt;= mid) query(lson, s, t);
+    if(t &gt; mid) query(rson, s, t);
+  }
+}
+il void update(ll rt, ll l, ll r, ll s, ll t, ll k) {
+  if(s &lt;= l &amp;&amp; r &lt;= t) {
+    laz[rt] += k;
+    a[rt] += k * len;
+  } else {
+    if(laz[rt]) pushdown(rt, len);
+    if(s &lt;= mid) update(lson, s, t, k);
+    if(t &gt; mid) update(rson, s, t, k);
+    a[rt] = (a[rt &lt;&lt; 1] + a[rt &lt;&lt; 1 | 1]);
+  }
+}
+il ll qRange(ll x, ll y) {
+  ll ans = 0;
+  while(top[x] != top[y]) {
+    if(dep[top[x]] &lt; dep[top[y]]) swap(x, y);
+    res = 0;
+    query(1, 1, n, id[top[x]], id[x]);
+    ans += res;
+    x = fa[top[x]];
+  }
+  if(dep[x] &gt; dep[y]) swap(x, y);
+  res = 0;
+  query(1, 1, n, id[x], id[y]);
+  ans += res;
+  return ans;
+}
+il void updSon(ll x, ll k) {
+  update(1, 1, n, id[x], id[x] + siz[x] - 1, k);
+}
+il void dfs1(ll x, ll f, ll deep) {
+  dep[x] = deep;
+  fa[x] = f;
+  siz[x] = 1;
+  ll maxson = -1;
+  for(ll i = head[x]; i; i = h[i].next) {
+    ll y = h[i].to;
+    if(y == f) continue;
+    dfs1(y, x, deep + 1);
+    siz[x] += siz[y];
+    if(siz[y] &gt; maxson) son[x] = y, maxson = siz[y];
+  }
+}
+il void dfs2(ll x, ll rt) {
+  id[x] = ++cnt;
+  wt[cnt] = w[x];
+  top[x] = rt;
+  if(!son[x]) return;
+  dfs2(son[x], rt);
+  for(ll i = head[x]; i; i = h[i].next) {
+    ll y = h[i].to;
+    if(y == fa[x] || y == son[x]) continue;
+    dfs2(y, y);
+  }
+}
+int main() {
+  read(n), read(m);
+  rep(i, 1, n) read(w[i]);
+  rep(i, 1, n - 1) {
+    ll a, b;
+    read(a), read(b);
+    add(a, b);
+    add(b, a);
+  }
+  dfs1(1, 0, 1);
+  dfs2(1, 1);
+  build(1, 1, n);
+  while(m--) {
+    ll k, x, y;
+    read(k);
+    if(k == 1) {
+      read(x), read(y);
+      update(1, 1, n, id[x], id[x], y);
+    } else if(k == 2) {
+      read(x), read(y);
+      updSon(x, y);
+    } else {
+      read(x);
+      print(qRange(1, x));
+      puts(&quot;&quot;);
+    }
+  }
+  return 0;
+}
+</code></pre>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+        </div>
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://fyc-1358.github.io/fyc_1358//images/avatar.png?v=1615036453497" class="no-responsive avatar">
+    <div class="text-muted">温故而知新</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/simulated-annealing-note/">模拟退火学习笔记</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/Ynoi2011-initialization/">[Ynoi2011]初始化 题解</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/testing_ground/">洛谷原试炼场</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/csp-j-2020/">CSP-J 2020</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/Graph-Algo/">TG8-图论算法</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/cuo-wu-he-ji/">错误合集</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/chiimos-code-style-for-oi/">Chiimo&#39;s Code Style for OI</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/about/">关于</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/hello-gridea/">Hello Gridea</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://fyc-1358.github.io/fyc_1358/test/">测试</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://fyc-1358.github.io/fyc_1358/BGLboKGp_/" class="badge secondary">
+          模拟退火
+        </a>
+      
+        <a href="https://fyc-1358.github.io/fyc_1358/xhn-EezdHE/" class="badge secondary">
+          算法学习
+        </a>
+      
+        <a href="https://fyc-1358.github.io/fyc_1358/PlHhUicaj/" class="badge warning">
+          分块
+        </a>
+      
+        <a href="https://fyc-1358.github.io/fyc_1358/GTvbd7_vVt/" class="badge ">
+          Ynoi
+        </a>
+      
+        <a href="https://fyc-1358.github.io/fyc_1358/a6vZMeH5um/" class="badge secondary">
+          数据结构
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    积土成山，风雨兴焉；积水成渊，蛟龙生焉。 | <a class="rss" href="https://fyc-1358.github.io/fyc_1358//atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+
+  </body>
+</html>

@@ -1,102 +1,110 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>[Ynoi2011]初始化 题解 | Chiimoちゃん</title>
-<meta name="description" content="温故而知新">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://fyc-1358.github.io/fyc_1358//favicon.ico?v=1615111704886">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="shortcut icon" href="https://fyc-1358.github.io/fyc_1358//favicon.ico?v=1615115746581">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fyc-1358.github.io/fyc_1358//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="[Ynoi2011]初始化 题解 | Chiimoちゃん - Atom Feed" href="https://fyc-1358.github.io/fyc_1358//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-
+    <meta name="description" content="第一道Ynoi，纪念一下。
+众所周知，Ynoi会进行惨无人道的卡常操作，所以我们可以使用暴力去做Ynoi。
+于是乎，我们考虑分块+暴力。
+对于操作2，不难发现是道裸的分块，可以抄P3372的代码。
+对于操作1，我们秉持暴力的思想，直接暴力修..." />
+    <meta name="keywords" content="题解,分块,Ynoi,数据结构" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-  
-    <nav class="navbar border fixed split-nav">
-  <div class="nav-brand">
-    <h3><a href="https://fyc-1358.github.io/fyc_1358/">Chiimoちゃん</a></h3>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://fyc-1358.github.io/fyc_1358/">
+  <img class="avatar" src="https://fyc-1358.github.io/fyc_1358//images/avatar.png?v=1615115746581" alt="">
+  </a>
+  <h1 class="site-title">
+    Chiimoちゃん
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/fyc_1358" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/fyc_1358/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/fyc_1358/tags" class="menu">
+          标签
+        </a>
+      
+    
   </div>
-  <div class="collapsible">
-    <input id="collapsible1" type="checkbox" name="collapsible1">
-    <button>
-      <label for="collapsible1">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </label>
-    </button>
-    <div class="collapsible-body">
-      <ul class="inline">
-        
-          <li>
-            
-              <a href="/fyc_1358" class="menu">
-                首页
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="/fyc_1358/archives" class="menu">
-                归档
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="/fyc_1358/tags" class="menu">
-                标签
-              </a>
-            
-          </li>
-        
-      </ul>
-    </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   </div>
-</nav>
+</div>
 
-    <div id="top" class="row site">
-      <div class="sm-12 md-8 col">
-        <div class="paper">
-          <article class="article">
-            <h1>[Ynoi2011]初始化 题解</h1>
-            <p class="article-meta">
-              27-02-2021
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              [Ynoi2011]初始化 题解
+            </h2>
+            <div class="post-info">
+              <span>
+                27-02-2021
+              </span>
+              <span>
+                5 min read
+              </span>
               
-                <a href="https://fyc-1358.github.io/fyc_1358/uvVYmzxP4/" class="badge warning">
-                  题解
+                <a href="https://fyc-1358.github.io/fyc_1358/uvVYmzxP4/" class="post-tag">
+                  # 题解
                 </a>
               
-                <a href="https://fyc-1358.github.io/fyc_1358/PlHhUicaj/" class="badge secondary">
-                  分块
+                <a href="https://fyc-1358.github.io/fyc_1358/PlHhUicaj/" class="post-tag">
+                  # 分块
                 </a>
               
-                <a href="https://fyc-1358.github.io/fyc_1358/GTvbd7_vVt/" class="badge secondary">
-                  Ynoi
+                <a href="https://fyc-1358.github.io/fyc_1358/GTvbd7_vVt/" class="post-tag">
+                  # Ynoi
                 </a>
               
-                <a href="https://fyc-1358.github.io/fyc_1358/a6vZMeH5um/" class="badge secondary">
-                  数据结构
+                <a href="https://fyc-1358.github.io/fyc_1358/a6vZMeH5um/" class="post-tag">
+                  # 数据结构
                 </a>
               
-            </p>
+            </div>
             
-            <div class="post-content">
-              <p>第一道Ynoi，纪念一下。<br>
+              <img class="post-feature-image" src="https://fyc-1358.github.io/fyc_1358//post-images/Ynoi2011-initialization.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>第一道Ynoi，纪念一下。<br>
 <s>众所周知，Ynoi会进行惨无人道的卡常操作，所以我们可以使用暴力去做Ynoi。</s><br>
 于是乎，我们考虑分块+暴力。<br>
 对于操作2，不难发现是道裸的分块，可以抄P3372的代码。<br>
@@ -252,178 +260,76 @@ int main() {
 }
 </code></pre>
 
+              </div>
+              <div class="toc-container">
+                
+              </div>
             </div>
           </article>
         </div>
-        <div class="paper" data-aos="fade-in">
-          
-            <div class="next-post">
-              <div class="next">
-                下一篇
-              </div>
-              <a href="https://fyc-1358.github.io/fyc_1358/testing_ground/">
-                <h3 class="post-title">
-                  洛谷原试炼场
-                </h3>
-              </a>
-            </div>
-          
-        </div>
-        
-      </div>
 
-      <div class="sm-12 md-4 col sidebar">
-  <div class="paper info-container">
-    <img src="https://fyc-1358.github.io/fyc_1358//images/avatar.png?v=1615111704886" class="no-responsive avatar">
-    <div class="text-muted">温故而知新</div>
-    <div class="social-container">
-      
         
-      
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://fyc-1358.github.io/fyc_1358/testing_ground/">
+              <h3 class="post-title">
+                洛谷原试炼场
+              </h3>
+            </a>
+          </div>
         
-      
+
         
-      
-        
-      
-        
-      
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      最新文章
-    </div>
-    <div class="row">
-      <ul>
-        
-          
-            <li>
-              <a href="https://fyc-1358.github.io/fyc_1358/AGC004c-Sol/">题解AGC004C</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://fyc-1358.github.io/fyc_1358/CRT-note/">CRT（中国剩余定理）学习笔记</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://fyc-1358.github.io/fyc_1358/simulated-annealing-note/">模拟退火学习笔记</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://fyc-1358.github.io/fyc_1358/Ynoi2011-initialization/">[Ynoi2011]初始化 题解</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://fyc-1358.github.io/fyc_1358/testing_ground/">洛谷原试炼场</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://fyc-1358.github.io/fyc_1358/csp-j-2020/">CSP-J 2020</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://fyc-1358.github.io/fyc_1358/Graph-Algo/">TG8-图论算法</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://fyc-1358.github.io/fyc_1358/cuo-wu-he-ji/">错误合集</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://fyc-1358.github.io/fyc_1358/chiimos-code-style-for-oi/">Chiimo&#39;s Code Style for OI</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://fyc-1358.github.io/fyc_1358/about/">关于</a>
-            </li>
-          
-        
-          
-        
-          
-        
-      </ul>
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      标签列表
-    </div>
-    <div class="row">
-      
-        <a href="https://fyc-1358.github.io/fyc_1358/uvVYmzxP4/" class="badge warning">
-          题解
-        </a>
-      
-        <a href="https://fyc-1358.github.io/fyc_1358/GjtDAOws1p/" class="badge secondary">
-          构造
-        </a>
-      
-        <a href="https://fyc-1358.github.io/fyc_1358/mU-EqdreH/" class="badge success">
-          crt
-        </a>
-      
-        <a href="https://fyc-1358.github.io/fyc_1358/xhn-EezdHE/" class="badge secondary">
-          算法学习
-        </a>
-      
-        <a href="https://fyc-1358.github.io/fyc_1358/BGLboKGp_/" class="badge warning">
-          模拟退火
-        </a>
-      
-        <a href="https://fyc-1358.github.io/fyc_1358/PlHhUicaj/" class="badge secondary">
-          分块
-        </a>
-      
-        <a href="https://fyc-1358.github.io/fyc_1358/GTvbd7_vVt/" class="badge secondary">
-          Ynoi
-        </a>
-      
-        <a href="https://fyc-1358.github.io/fyc_1358/a6vZMeH5um/" class="badge success">
-          数据结构
-        </a>
-      
-    </div>
-  </div>
-  <div class="paper">
-    积土成山，风雨兴焉；积水成渊，蛟龙生焉。 | <a class="rss" href="https://fyc-1358.github.io/fyc_1358//atom.xml" target="_blank">RSS</a>
-  </div>
+
+        <div class="site-footer">
+  积土成山，风雨兴焉；积水成渊，蛟龙生焉。
+  <a class="rss" href="https://fyc-1358.github.io/fyc_1358//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
 </div>
 
-
+      </div>
     </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad()
 
-<script type="application/javascript">
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
 
-AOS.init();
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
 
-hljs.initHighlightingOnLoad()
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
 
-</script>
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
 
-
-
-
+    </script>
   </body>
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>[Ynoi2011]初始化 题解 | Chiimoちゃん</title>
+<title>题解AGC004C | Chiimoちゃん</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -73,44 +73,76 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>[Ynoi2011]初始化 题解</h1>
+            <h1>题解AGC004C</h1>
             <p class="article-meta">
-              27-02-2021
+              07-03-2021
               
-                <a href="https://fyc-1358.github.io/fyc_1358/uvVYmzxP4/" class="badge warning">
+                <a href="https://fyc-1358.github.io/fyc_1358/uvVYmzxP4/" class="badge ">
                   题解
                 </a>
               
-                <a href="https://fyc-1358.github.io/fyc_1358/PlHhUicaj/" class="badge secondary">
-                  分块
-                </a>
-              
-                <a href="https://fyc-1358.github.io/fyc_1358/GTvbd7_vVt/" class="badge secondary">
-                  Ynoi
-                </a>
-              
-                <a href="https://fyc-1358.github.io/fyc_1358/a6vZMeH5um/" class="badge secondary">
-                  数据结构
+                <a href="https://fyc-1358.github.io/fyc_1358/GjtDAOws1p/" class="badge ">
+                  构造
                 </a>
               
             </p>
             
             <div class="post-content">
-              <p>第一道Ynoi，纪念一下。<br>
-<s>众所周知，Ynoi会进行惨无人道的卡常操作，所以我们可以使用暴力去做Ynoi。</s><br>
-于是乎，我们考虑分块+暴力。<br>
-对于操作2，不难发现是道裸的分块，可以抄P3372的代码。<br>
-对于操作1，我们秉持暴力的思想，直接暴力修改。<br>
-然后就AC了。<br>
-但是如果每个操作都是<code>1 1 1 1</code>，那么最坏复杂度是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> ...<br>
-<s>可是毕竟数据不是<code>lxl</code>造的，随便暴力。</s><br>
-<s>卡常都不用卡。</s><br>
-<s>复杂度什么的全部不管。</s><br>
-<s>好像线段树和树状数组被卡掉了？</s><br>
-<s>分块能过就行。</s><br>
-最后贴一下分块的代码。</p>
+              <p><a href="https://atcoder.jp/contests/agc004/tasks/agc004_c">题目</a> 。<br>
+样例 AGC 好评。<br>
+题意：让你在一个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>H</mi><mo>×</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">H \times W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span></span></span></span> 的方格纸上找两个连通块，使得他们的重合部分就是输入中给的部分。<br>
+先放个样例。<br>
+输入：</p>
+<pre><code>5 5
+.....
+.#.#.
+.....
+.#.#.
+.....
+</code></pre>
+<p>输出：</p>
+<pre><code>.....
+#####
+#....
+#####
+.....
+
+.###.
+.#.#.
+.#.#.
+.#.#.
+.....
+</code></pre>
+<p>你可以看到，把输出的那两个结合一下是这样的：</p>
+<pre><code>01110
+12121
+11011
+12121
+00000
+</code></pre>
+<p>然后说怎么做。<br>
+可以考虑让两个图并起来以后填满整个图，所以我让其中一个图占满奇行，另一个图占满偶行。<br>
+怎样是两个图全部联通呢？<br>
+再看一眼题目，可以发现一条重要性质：<br>
+边界没有 <code>#</code> 。<br>
+所以可以让一张图占满左列，另一张图占满右列。<br>
+最后把题目要求的那些重合的点同时加入两个图中即可。不难发现，加入后的图一定是联通的。<br>
+根据这个做法，与样例输入配对的输出是：</p>
+<pre><code>####.
+##.#.
+####.
+##.#.
+####.
+
+....#
+#####
+....#
+#####
+....#
+</code></pre>
+<p>第一行和最后一行无所谓。<br>
+代码：</p>
 <pre><code class="language-cpp">#include&lt;stdio.h&gt;
-#include&lt;math.h&gt;
 #define reg register
 #define ri reg int
 #define rep(i, x, y) for(ri i = x; i &lt;= y; ++i)
@@ -118,6 +150,7 @@
 #define DEBUG 1
 #define ll long long
 #define il inline
+#define swap(a, b) ((a) ^= (b) ^= (a) ^= (b))
 #define max(i, j) (i) &gt; (j) ? (i) : (j)
 #define min(i, j) (i) &lt; (j) ? (i) : (j)
 #define read(i) io.READ(i)
@@ -203,51 +236,34 @@ struct IO {
     PUSH(lastChar);
   }
 } io;
-
-ll n, m, a[200010], belong[200010];
-ll s, c, st[50010], ed[50010];
-ll sum[50010];
-void pretreat() {
-  s = (int)sqrt(n);
-  for(ri i = 1; i &lt;= n; i += s) {
-    st[++c] = i;
-    ed[c] = min(i + s - 1, n);
-  } /*做出每个块的左右端点*/
-  rep(i, 1, c) rep(j, st[i], ed[i]) {
-    belong[j] = i;
-    sum[i] += a[j]; /*预处理块内各数之和*/
-  }
-  /*记录每一个数在哪一块*/
-}
-il void single_upd(ll x, ll k) {
-  a[x] += k; /*单点增加*/
-  sum[belong[x]] += k;
-}
-il void range_upd(ll x, ll y, ll k) { 
-  for(ll i = y; i &lt;= n; i += x) single_upd(i, k);
-}
-il ll range_query(ll x, ll y) {
-  ll l = belong[x], r = belong[y], ans = 0;
-  if(l == r) {
-    rep(i, x, y) ans += a[i];
-    return ans % (int)(1e9 + 7);
-  }
-  rep(i, x, ed[l]) ans += a[i];
-  /*左边不完整块的求和*/
-  rep(i, st[r], y) ans += a[i];
-  rep(i, l + 1, r - 1) ans += sum[i];
-  return ans % (int)(1e9 + 7);
-}
+int h, w, a[510][510], b[510][510];
+char map[510][510];
 int main() {
-  read(n), read(m);
-  rep(i, 1, n) read(a[i]);
-  pretreat();
-  rep(i, 1, m) {
-    ri opt, l, r, c;
-    read(opt), read(l), read(r);
-    if(opt == 1) read(c), range_upd(l, r, c);
-    else print(range_query(l, r)), push('\n');
+  read(h), read(w);
+  rep(i, 1, h) {
+    rep(j, 1, w) map[i][j] = getchar();
+    getchar();
   }
+  int crayon;
+  rep(i, 2, h - 1) {
+    if(i % 2) crayon = 1;
+    else crayon = 0;
+    rep(j, 2, w - 1) {
+      a[i][j] = crayon;
+      b[i][j] = crayon ^ 1;
+      if(map[i][j] == '#') a[i][j] = b[i][j] = 1;
+    }
+  }
+  rep(i, 1, h) {
+    rep(j, 1, w) putchar((a[i][j] || j == 1) ? '#' : '.');
+    puts(&quot;&quot;);
+  }
+  puts(&quot;&quot;);
+  rep(i, 1, h) {
+    rep(j, 1, w) putchar((b[i][j] || j == w) ? '#' : '.');
+    puts(&quot;&quot;);
+  }
+  puts(&quot;&quot;);
   return 0;
 }
 </code></pre>
@@ -261,9 +277,9 @@ int main() {
               <div class="next">
                 下一篇
               </div>
-              <a href="https://fyc-1358.github.io/fyc_1358/testing_ground/">
+              <a href="https://fyc-1358.github.io/fyc_1358/CRT-note/">
                 <h3 class="post-title">
-                  洛谷原试炼场
+                  CRT（中国剩余定理）学习笔记
                 </h3>
               </a>
             </div>
@@ -370,23 +386,23 @@ int main() {
     </div>
     <div class="row">
       
-        <a href="https://fyc-1358.github.io/fyc_1358/uvVYmzxP4/" class="badge warning">
+        <a href="https://fyc-1358.github.io/fyc_1358/uvVYmzxP4/" class="badge secondary">
           题解
         </a>
       
-        <a href="https://fyc-1358.github.io/fyc_1358/GjtDAOws1p/" class="badge secondary">
+        <a href="https://fyc-1358.github.io/fyc_1358/GjtDAOws1p/" class="badge ">
           构造
         </a>
       
-        <a href="https://fyc-1358.github.io/fyc_1358/mU-EqdreH/" class="badge success">
+        <a href="https://fyc-1358.github.io/fyc_1358/mU-EqdreH/" class="badge secondary">
           crt
         </a>
       
-        <a href="https://fyc-1358.github.io/fyc_1358/xhn-EezdHE/" class="badge secondary">
+        <a href="https://fyc-1358.github.io/fyc_1358/xhn-EezdHE/" class="badge success">
           算法学习
         </a>
       
-        <a href="https://fyc-1358.github.io/fyc_1358/BGLboKGp_/" class="badge warning">
+        <a href="https://fyc-1358.github.io/fyc_1358/BGLboKGp_/" class="badge ">
           模拟退火
         </a>
       

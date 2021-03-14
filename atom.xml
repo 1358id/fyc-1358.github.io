@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://fyc-1358.github.io/fyc_1358/</id>
     <title>Chiimoちゃん</title>
-    <updated>2021-03-14T07:57:52.059Z</updated>
+    <updated>2021-03-14T08:21:18.878Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://fyc-1358.github.io/fyc_1358/"/>
     <link rel="self" href="https://fyc-1358.github.io/fyc_1358/atom.xml"/>
@@ -10,6 +10,20 @@
     <logo>https://fyc-1358.github.io/fyc_1358/images/avatar.png</logo>
     <icon>https://fyc-1358.github.io/fyc_1358/favicon.ico</icon>
     <rights>All rights reserved 2021, Chiimoちゃん</rights>
+    <entry>
+        <title type="html"><![CDATA[JOISC2019-試験 伪题解]]></title>
+        <id>https://fyc-1358.github.io/fyc_1358/ JOISC2019Day1T1_Sol/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/ JOISC2019Day1T1_Sol/">
+        </link>
+        <updated>2021-03-14T08:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[ABC132D题解]]></title>
+        <id>https://fyc-1358.github.io/fyc_1358/ABC132D_Sol/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/ABC132D_Sol/">
+        </link>
+        <updated>2021-03-14T08:00:00.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[莫队学习笔记]]></title>
         <id>https://fyc-1358.github.io/fyc_1358/mos-Algo/</id>
@@ -65,19 +79,5 @@
         <link href="https://fyc-1358.github.io/fyc_1358/testing_ground/">
         </link>
         <updated>2021-02-26T06:00:00.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[CSP-J 2020]]></title>
-        <id>https://fyc-1358.github.io/fyc_1358/csp-j-2020/</id>
-        <link href="https://fyc-1358.github.io/fyc_1358/csp-j-2020/">
-        </link>
-        <updated>2021-02-26T05:58:38.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[错误合集]]></title>
-        <id>https://fyc-1358.github.io/fyc_1358/cuo-wu-he-ji/</id>
-        <link href="https://fyc-1358.github.io/fyc_1358/cuo-wu-he-ji/">
-        </link>
-        <updated>2021-02-26T05:50:56.000Z</updated>
     </entry>
 </feed>

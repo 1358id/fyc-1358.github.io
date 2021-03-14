@@ -1,0 +1,446 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>莫队学习笔记 | Chiimoちゃん</title>
+<link rel="shortcut icon" href="https://fyc-1358.github.io/fyc_1358//favicon.ico?v=1615694784446">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fyc-1358.github.io/fyc_1358//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="莫队学习笔记 | Chiimoちゃん - Atom Feed" href="https://fyc-1358.github.io/fyc_1358//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+
+树上莫队之类的，完全不慌的啦
+第一张图最后一句话写错了，是 --l 和 r-- 。
+带修莫队至今没 AC ，所以代码就不放了。
+普通莫队的代码放一下：
+LuoGu P3709
+#include&lt;stdio.h&gt;
+#inclu..." />
+    <meta name="keywords" content="莫队,算法学习" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://fyc-1358.github.io/fyc_1358/">
+  <img class="avatar" src="https://fyc-1358.github.io/fyc_1358//images/avatar.png?v=1615694784446" alt="">
+  </a>
+  <h1 class="site-title">
+    Chiimoちゃん
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/fyc_1358" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/fyc_1358/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/fyc_1358/tags" class="menu">
+          标签
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              莫队学习笔记
+            </h2>
+            <div class="post-info">
+              <span>
+                14-03-2021
+              </span>
+              <span>
+                8 min read
+              </span>
+              
+                <a href="https://fyc-1358.github.io/fyc_1358/30VEuSYhU/" class="post-tag">
+                  # 莫队
+                </a>
+              
+                <a href="https://fyc-1358.github.io/fyc_1358/xhn-EezdHE/" class="post-tag">
+                  # 算法学习
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://fyc-1358.github.io/fyc_1358//post-images/mos-Algo.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p><img src="https://fyc-1358.github.io/fyc_1358//post-images/1615686696792.jpg" alt="" loading="lazy"><br>
+<img src="https://fyc-1358.github.io/fyc_1358//post-images/1615686704166.jpg" alt="" loading="lazy"><br>
+<s>树上莫队之类的，完全不慌的啦</s></p>
+<p>第一张图最后一句话写错了，是 <code>--l</code> 和 <code>r--</code> 。<br>
+带修莫队至今没 <code>AC</code> ，所以代码就不放了。<br>
+普通莫队的代码放一下：<br>
+<code>LuoGu P3709</code></p>
+<pre><code class="language-cpp">#include&lt;stdio.h&gt;
+#include&lt;math.h&gt;
+#include&lt;algorithm&gt;
+#define reg register
+#define ri reg int
+#define rep(i, x, y) for(ri i = x; i &lt;= y; ++i)
+#define nrep(i, x, y) for(ri i = x; i &gt;= y; --i)
+#define DEBUG 1
+#define ll long long
+#define max(i, j) (i) &gt; (j) ? (i) : (j)
+#define min(i, j) (i) &lt; (j) ? (i) : (j)
+using namespace std;
+int read(){
+    int x = 0, w = 1;
+	char ch = getchar();
+    while(ch &lt; '0' || ch &gt; '9') { if(ch == '-') w = -1; ch = getchar(); }
+    while(ch &gt;= '0' &amp;&amp; ch &lt;= '9') x = x * 10 + ch - '0', ch = getchar();
+    return x * w;
+}
+struct IO {
+	#define MAXSIZE (1 &lt;&lt; 20)
+	#define isdigit(x) (x &gt;= '0' &amp;&amp; x &lt;= '9')
+	char buf[MAXSIZE], *p1, *p2;
+	char pbuf[MAXSIZE], *pp;
+	#if DEBUG
+	#else
+		IO() : p1(buf), p2(buf), pp(pbuf) {}
+		~IO() {
+			fwrite(pbuf, 1, pp - pbuf, stdout);
+		}
+	#endif
+	inline char gc() {
+		#if DEBUG
+    		return getchar();
+		#endif
+    	if(p1 == p2)
+			p2 = (p1 = buf) + fread(buf, 1, MAXSIZE, stdin);
+    	return p1 == p2 ? ' ' : *p1++;
+	}
+	inline bool blank(char ch) {
+    	return ch == ' ' || ch == '\n' || ch == '\r' || ch == '\t';
+	}
+	template &lt;class T&gt;
+	inline void read(T &amp;x) {
+    	register double tmp = 1;
+    	register bool sign = 0;
+    	x = 0;
+    	register char ch = gc();
+    	for(; !isdigit(ch); ch = gc())
+    		if(ch == '-') sign = 1;
+    	for(; isdigit(ch); ch = gc())
+			x = x * 10 + (ch - '0');
+    	if(ch == '.')
+			for(ch = gc(); isdigit(ch); ch = gc())
+        		tmp /= 10.0, x += tmp * (ch - '0');
+    	if(sign) x = -x;
+	}
+	inline void read(char *s) {
+		register char ch = gc();
+		for(; blank(ch); ch = gc());
+		for(; !blank(ch); ch = gc())
+			*s++ = ch;
+    	*s = 0;
+	}
+	inline void read(char &amp;c) {
+    	for(c = gc(); blank(c); c = gc());
+	}
+	inline void push(const char &amp;c) {
+		#if DEBUG
+    		putchar(c);
+		#else
+    		if(pp - pbuf == MAXSIZE) {
+				fwrite(pbuf, 1, MAXSIZE, stdout);
+				pp = pbuf;
+			}
+    		*pp++ = c;
+		#endif
+	}
+	template &lt;class T&gt;
+	inline void write(T x) {
+    	if(x &lt; 0) {
+			x = -x;
+			push('-');
+		}
+    	static T sta[35];
+    	T top = 0;
+    	do{
+			sta[top++] = x % 10;
+			x /= 10;
+    	}while(x);
+    	while(top)
+			push(sta[--top] + '0');
+	}
+	template &lt;class T&gt;
+	inline void write(T x, char lastChar) {
+    	write(x);
+		push(lastChar);
+	}
+} io;
+int n, m, B, len, Ans, a[200010], d[200010], b[200010], t[200010], cnt[200010], ans[200010];
+struct Q { int l, r, id; } q[200010];
+bool cmp(Q x, Q y) {
+	if(b[x.l] == b[y.l])
+		if(b[x.l] &amp; 1) return x.r &lt; y.r;
+		else return x.r &gt; y.r;
+	return b[x.l] &lt; b[y.l];
+}
+void add(int i) { /*区间增长*/
+	t[cnt[a[i]]]--; /*去掉区间的众数,因为他即将加一*/
+	t[++cnt[a[i]]]++;
+	Ans = max(Ans, cnt[a[i]]);
+}
+void del(int i) { /*区间缩短*/
+	t[cnt[a[i]]]--;
+	if(cnt[a[i]] == Ans &amp;&amp; !t[cnt[a[i]]]) --Ans; /*如果去掉以后总共的众数随着他减小*/
+	t[--cnt[a[i]]]++;
+}
+int main() {
+	n = read(), m = read();
+	B = sqrt(n); /*确定复杂度*/
+	rep(i, 1, n) {
+		d[i] = a[i] = read();
+		b[i] = (i - 1) / B + 1; /*离散化处理*/
+	}
+	sort(d + 1, d + n + 1);
+	len = unique(d + 1, d + n + 1) - d - 1;
+	rep(i, 1, n) a[i] = lower_bound(d + 1, d + len + 1, a[i]) - d;
+	rep(i, 1, m) q[i] = (Q){read(), read(), i};
+	sort(q + 1, q + m + 1, cmp);
+	int l = 1, r = 0;
+	rep(i, 1, m) {
+		while(r &lt; q[i].r) add(++r);
+		while(r &gt; q[i].r) del(r--);
+		while(l &lt; q[i].l) del(l++);
+		while(l &gt; q[i].l) add(--l);
+		ans[q[i].id] = Ans;
+	}
+	rep(i, 1, m) io.write(-ans[i], '\n');
+	return 0;
+}
+</code></pre>
+<p>这题是查询区间众数。<br>
+<code>LuoGu P1972</code></p>
+<pre><code class="language-cpp">#include&lt;stdio.h&gt;
+#include&lt;math.h&gt;
+#include&lt;algorithm&gt; 
+#define reg register
+#define ri reg int
+#define rep(i, x, y) for(ri i = x; i &lt;= y; ++i)
+#define nrep(i, x, y) for(ri i = x; i &gt;= y; --i)
+#define ll long long
+#define max(i, j) (i) &gt; (j) ? (i) : (j)
+#define min(i, j) (i) &lt; (j) ? (i) : (j)
+struct IO {
+	#define MAXSIZE (1 &lt;&lt; 20)
+	#define isdigit(x) (x &gt;= '0' &amp;&amp; x &lt;= '9')
+	char buf[MAXSIZE], *p1, *p2;
+	char pbuf[MAXSIZE], *pp;
+	#if DEBUG
+	#else
+		IO() : p1(buf), p2(buf), pp(pbuf) {}
+		~IO() {
+			fwrite(pbuf, 1, pp - pbuf, stdout);
+		}
+	#endif
+	inline char gc() {
+		#if DEBUG
+    		return getchar();
+		#endif
+    	if(p1 == p2)
+			p2 = (p1 = buf) + fread(buf, 1, MAXSIZE, stdin);
+    	return p1 == p2 ? ' ' : *p1++;
+	}
+	inline bool blank(char ch) {
+    	return ch == ' ' || ch == '\n' || ch == '\r' || ch == '\t';
+	}
+	template &lt;class T&gt;
+	inline void read(T &amp;x) {
+    	register double tmp = 1;
+    	register bool sign = 0;
+    	x = 0;
+    	register char ch = gc();
+    	for(; !isdigit(ch); ch = gc())
+    		if(ch == '-') sign = 1;
+    	for(; isdigit(ch); ch = gc())
+			x = x * 10 + (ch - '0');
+    	if(ch == '.')
+			for(ch = gc(); isdigit(ch); ch = gc())
+        		tmp /= 10.0, x += tmp * (ch - '0');
+    	if(sign) x = -x;
+	}
+	inline void read(char *s) {
+		register char ch = gc();
+		for(; blank(ch); ch = gc());
+		for(; !blank(ch); ch = gc())
+			*s++ = ch;
+    	*s = 0;
+	}
+	inline void read(char &amp;c) {
+    	for(c = gc(); blank(c); c = gc());
+	}
+	inline void push(const char &amp;c) {
+		#if DEBUG
+    		putchar(c);
+		#else
+    		if(pp - pbuf == MAXSIZE) {
+				fwrite(pbuf, 1, MAXSIZE, stdout);
+				pp = pbuf;
+			}
+    		*pp++ = c;
+		#endif
+	}
+	template &lt;class T&gt;
+	inline void write(T x) {
+    	if(x &lt; 0) {
+			x = -x;
+			push('-');
+		}
+    	static T sta[35];
+    	T top = 0;
+    	do{
+			sta[top++] = x % 10;
+			x /= 10;
+    	}while(x);
+    	while(top)
+			push(sta[--top] + '0');
+	}
+	template &lt;class T&gt;
+	inline void write(T x, char lastChar) {
+    	write(x);
+		push(lastChar);
+	}
+} io;
+int aa[1000010], cnt[1000010], belong[1000010];
+int n, m, size, bnum, now, ans[1000010];
+struct query { /*询问*/
+	int l, r, id;
+} q[1000010];
+
+inline int cmp(query a, query b) {
+	return (belong[a.l] ^ belong[b.l]) ? belong[a.l] &lt; belong[b.l] : ((belong[a.l] &amp; 1) ? a.r &lt; b.r : a.r &gt; b.r); /*奇偶优化后的排序*/
+}
+int main() {
+	io.read(n);
+	rep(i, 1, n) io.read(aa[i]), belong[i] = (i - 1) / 1700 + 1;
+	io.read(m);
+	rep(i, 1, m) {
+		io.read(q[i].l), io.read(q[i].r);
+		q[i].id = i; /*读入每一个询问*/
+	}
+	std::sort(q + 1, q + m + 1, cmp);
+	ri l = 1, r = 0;
+	rep(i, 1, m) {
+		while(l &lt; q[i].l) now -= !--cnt[aa[l++]]; /*需要移动就移,在移的过程中更新答案*/
+		while(l &gt; q[i].l) now += !cnt[aa[--l]]++;
+		while(r &lt; q[i].r) now += !cnt[aa[++r]]++;
+		while(r &gt; q[i].r) now -= !--cnt[aa[r--]];
+		ans[q[i].id] = now;
+	}
+	rep(i, 1, m) io.write(ans[i], '\n');
+}
+</code></pre>
+<p>这题是区间不同数据个数，过不去的话，改一下块长+<s>洗把脸</s> 。</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://fyc-1358.github.io/fyc_1358/P2858_Sol/">
+              <h3 class="post-title">
+                洛谷P2858题解
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  积土成山，风雨兴焉；积水成渊，蛟龙生焉。
+  <a class="rss" href="https://fyc-1358.github.io/fyc_1358//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

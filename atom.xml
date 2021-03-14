@@ -1,75 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://fyc-1358.github.io/chiimo/</id>
+    <id>https://fyc-1358.github.io/fyc_1358/</id>
     <title>Chiimoちゃん</title>
-    <updated>2021-03-14T00:31:45.910Z</updated>
+    <updated>2021-03-14T00:32:48.578Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://fyc-1358.github.io/chiimo/"/>
-    <link rel="self" href="https://fyc-1358.github.io/chiimo/atom.xml"/>
+    <link rel="alternate" href="https://fyc-1358.github.io/fyc_1358/"/>
+    <link rel="self" href="https://fyc-1358.github.io/fyc_1358/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://fyc-1358.github.io/chiimo/images/avatar.png</logo>
-    <icon>https://fyc-1358.github.io/chiimo/favicon.ico</icon>
+    <logo>https://fyc-1358.github.io/fyc_1358/images/avatar.png</logo>
+    <icon>https://fyc-1358.github.io/fyc_1358/favicon.ico</icon>
     <rights>All rights reserved 2021, Chiimoちゃん</rights>
     <entry>
         <title type="html"><![CDATA[题解CF757B]]></title>
-        <id>https://fyc-1358.github.io/chiimo/CF757B-solution/</id>
-        <link href="https://fyc-1358.github.io/chiimo/CF757B-solution/">
+        <id>https://fyc-1358.github.io/fyc_1358/CF757B-solution/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/CF757B-solution/">
         </link>
         <updated>2021-03-13T08:00:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[题解AGC004C]]></title>
-        <id>https://fyc-1358.github.io/chiimo/AGC004c-Sol/</id>
-        <link href="https://fyc-1358.github.io/chiimo/AGC004c-Sol/">
+        <id>https://fyc-1358.github.io/fyc_1358/AGC004c-Sol/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/AGC004c-Sol/">
         </link>
         <updated>2021-03-07T10:00:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[CRT（中国剩余定理）学习笔记]]></title>
-        <id>https://fyc-1358.github.io/chiimo/CRT-note/</id>
-        <link href="https://fyc-1358.github.io/chiimo/CRT-note/">
+        <id>https://fyc-1358.github.io/fyc_1358/CRT-note/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/CRT-note/">
         </link>
         <updated>2021-03-07T10:00:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[模拟退火学习笔记]]></title>
-        <id>https://fyc-1358.github.io/chiimo/simulated-annealing-note/</id>
-        <link href="https://fyc-1358.github.io/chiimo/simulated-annealing-note/">
+        <id>https://fyc-1358.github.io/fyc_1358/simulated-annealing-note/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/simulated-annealing-note/">
         </link>
         <updated>2021-03-06T13:00:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[[Ynoi2011]初始化 题解]]></title>
-        <id>https://fyc-1358.github.io/chiimo/Ynoi2011-initialization/</id>
-        <link href="https://fyc-1358.github.io/chiimo/Ynoi2011-initialization/">
+        <id>https://fyc-1358.github.io/fyc_1358/Ynoi2011-initialization/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/Ynoi2011-initialization/">
         </link>
         <updated>2021-02-27T13:00:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[洛谷原试炼场]]></title>
-        <id>https://fyc-1358.github.io/chiimo/testing_ground/</id>
-        <link href="https://fyc-1358.github.io/chiimo/testing_ground/">
+        <id>https://fyc-1358.github.io/fyc_1358/testing_ground/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/testing_ground/">
         </link>
         <updated>2021-02-26T06:00:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[CSP-J 2020]]></title>
-        <id>https://fyc-1358.github.io/chiimo/csp-j-2020/</id>
-        <link href="https://fyc-1358.github.io/chiimo/csp-j-2020/">
+        <id>https://fyc-1358.github.io/fyc_1358/csp-j-2020/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/csp-j-2020/">
         </link>
         <updated>2021-02-26T05:58:38.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[错误合集]]></title>
-        <id>https://fyc-1358.github.io/chiimo/cuo-wu-he-ji/</id>
-        <link href="https://fyc-1358.github.io/chiimo/cuo-wu-he-ji/">
+        <id>https://fyc-1358.github.io/fyc_1358/cuo-wu-he-ji/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/cuo-wu-he-ji/">
         </link>
         <updated>2021-02-26T05:50:56.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Chiimo's Code Style for OI]]></title>
-        <id>https://fyc-1358.github.io/chiimo/chiimos-code-style-for-oi/</id>
-        <link href="https://fyc-1358.github.io/chiimo/chiimos-code-style-for-oi/">
+        <id>https://fyc-1358.github.io/fyc_1358/chiimos-code-style-for-oi/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/chiimos-code-style-for-oi/">
         </link>
         <updated>2021-02-26T05:38:19.000Z</updated>
     </entry>

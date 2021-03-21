@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://fyc-1358.github.io/fyc_1358/</id>
     <title>Chiimoちゃん</title>
-    <updated>2021-03-20T11:59:12.582Z</updated>
+    <updated>2021-03-21T08:38:38.937Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://fyc-1358.github.io/fyc_1358/"/>
     <link rel="self" href="https://fyc-1358.github.io/fyc_1358/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://fyc-1358.github.io/fyc_1358/images/avatar.png</logo>
     <icon>https://fyc-1358.github.io/fyc_1358/favicon.ico</icon>
     <rights>All rights reserved 2021, Chiimoちゃん</rights>
+    <entry>
+        <title type="html"><![CDATA[洛谷P1880题解]]></title>
+        <id>https://fyc-1358.github.io/fyc_1358/sol_lgP1880/</id>
+        <link href="https://fyc-1358.github.io/fyc_1358/sol_lgP1880/">
+        </link>
+        <updated>2021-03-21T13:21:21.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[洛谷P2504题解]]></title>
         <id>https://fyc-1358.github.io/fyc_1358/Sol_LG3504/</id>
@@ -72,12 +79,5 @@
         <link href="https://fyc-1358.github.io/fyc_1358/simulated-annealing-note/">
         </link>
         <updated>2021-03-06T13:00:00.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[Ynoi2011]初始化 题解]]></title>
-        <id>https://fyc-1358.github.io/fyc_1358/Ynoi2011-initialization/</id>
-        <link href="https://fyc-1358.github.io/fyc_1358/Ynoi2011-initialization/">
-        </link>
-        <updated>2021-02-27T13:00:00.000Z</updated>
     </entry>
 </feed>

@@ -1,0 +1,304 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>洛谷P1880题解 | Chiimoちゃん</title>
+<link rel="shortcut icon" href="https://fyc-1358.github.io/fyc_1358//favicon.ico?v=1616315838591">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fyc-1358.github.io/fyc_1358//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="洛谷P1880题解 | Chiimoちゃん - Atom Feed" href="https://fyc-1358.github.io/fyc_1358//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="题目
+第一类区间DP模板题。
+所谓第一类区间DP，是指合并型区间DP，状态转移方程一般形如 fi,j=max⁡fi,k+fk+1,j+costi,jf_{i,j}=\max{f_{i,k}+f_{k+1,j}+cost_{i,j}}fi,j..." />
+    <meta name="keywords" content="DP,题解" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://fyc-1358.github.io/fyc_1358/">
+  <img class="avatar" src="https://fyc-1358.github.io/fyc_1358//images/avatar.png?v=1616315838591" alt="">
+  </a>
+  <h1 class="site-title">
+    Chiimoちゃん
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/fyc_1358" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/fyc_1358/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/fyc_1358/tags" class="menu">
+          标签
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              洛谷P1880题解
+            </h2>
+            <div class="post-info">
+              <span>
+                21-03-2021
+              </span>
+              <span>
+                5 min read
+              </span>
+              
+                <a href="https://fyc-1358.github.io/fyc_1358/zBNNIKoF0/" class="post-tag">
+                  # DP
+                </a>
+              
+                <a href="https://fyc-1358.github.io/fyc_1358/uvVYmzxP4/" class="post-tag">
+                  # 题解
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://fyc-1358.github.io/fyc_1358//post-images/sol_lgP1880.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p><a href="https://www.luogu.com.cn/problem/P1880">题目</a><br>
+第一类区间DP模板题。<br>
+所谓第一类区间DP，是指合并型区间DP，状态转移方程一般形如 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><mi>max</mi><mo>⁡</mo><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>k</mi></mrow></msub><mo>+</mo><msub><mi>f</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>+</mo><mi>c</mi><mi>o</mi><mi>s</mi><msub><mi>t</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow></mrow><annotation encoding="application/x-tex">f_{i,j}=\max{f_{i,k}+f_{k+1,j}+cost_{i,j}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mop">max</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></span> ，时间复杂度一般是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>3</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。<br>
+这道题因为在环上，不能直接套板子，我们考虑：</p>
+<ol>
+<li>断环成链，时间复杂度 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>4</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^4)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 。如果加火车头之类的东西的话勉强能卡过去。</li>
+<li>倍长原环，做完DP以后在长度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 个区间内找最优解。时间复杂度 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>3</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，可以通过本题。</li>
+</ol>
+<p>就本题而言，状态转移方程可以套用板子。<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><mi>max</mi><mo>⁡</mo><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>k</mi></mrow></msub><mo>+</mo><msub><mi>f</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>+</mo><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><msubsup><mo>∑</mo><mrow><mi>m</mi><mo>=</mo><mi>i</mi></mrow><mi>j</mi></msubsup><mi>a</mi><mo>[</mo><mi>m</mi><mo>]</mo></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">f_{i,j}=\max{f_{i,k}+f_{k+1,j}+\begin{matrix} \sum_{m=i}^j a[m] \end{matrix}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.324564em;vertical-align:-0.412282em;"></span><span class="mop">max</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.912282em;"><span style="top:-2.947718em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.964564em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mrel mtight">=</span><span class="mord mathdefault mtight">i</span></span></span></span><span style="top:-3.2029000000000005em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">m</span><span class="mclose">]</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.412282em;"><span></span></span></span></span></span></span></span></span></span></span></span>。<br>
+代码：</p>
+<pre><code class="language-cpp">#include&lt;stdio.h&gt;
+#define reg register
+#define ri reg int
+#define rep(i, x, y) for(ri i = x; i &lt;= y; ++i)
+#define nrep(i, x, y) for(ri i = x; i &gt;= y; --i)
+#define DEBUG 1
+#define ll long long
+#define il inline
+#define swap(a, b) ((a) ^= (b) ^= (a) ^= (b))
+#define max(i, j) (i) &gt; (j) ? (i) : (j)
+#define min(i, j) (i) &lt; (j) ? (i) : (j)
+#define read(i) io.READ(i)
+#define print(i) io.WRITE(i)
+#define push(i) io.PUSH(i)
+struct IO {
+#define MAXSIZE (1 &lt;&lt; 20)
+#define isdigit(x) (x &gt;= '0' &amp;&amp; x &lt;= '9')
+  char buf[MAXSIZE], *p1, *p2;
+  char pbuf[MAXSIZE], *pp;
+#if DEBUG
+#else
+  IO() : p1(buf), p2(buf), pp(pbuf) {}
+  ~IO() {
+    fwrite(pbuf, 1, pp - pbuf, stdout);
+  }
+#endif
+  inline char gc() {
+#if DEBUG
+    return getchar();
+#endif
+    if(p1 == p2)
+      p2 = (p1 = buf) + fread(buf, 1, MAXSIZE, stdin);
+    return p1 == p2 ? ' ' : *p1++;
+  }
+  inline bool blank(char ch) {
+    return ch == ' ' || ch == '\n' || ch == '\r' || ch == '\t';
+  }
+  template &lt;class T&gt;
+  inline void READ(T &amp;x) {
+    register double tmp = 1;
+    register bool sign = 0;
+    x = 0;
+    register char ch = gc();
+    for(; !isdigit(ch); ch = gc())
+      if(ch == '-') sign = 1;
+    for(; isdigit(ch); ch = gc())
+      x = x * 10 + (ch - '0');
+    if(ch == '.')
+      for(ch = gc(); isdigit(ch); ch = gc())
+        tmp /= 10.0, x += tmp * (ch - '0');
+    if(sign) x = -x;
+  }
+  inline void READ(char *s) {
+    register char ch = gc();
+    for(; blank(ch); ch = gc());
+    for(; !blank(ch); ch = gc())
+      *s++ = ch;
+    *s = 0;
+  }
+  inline void READ(char &amp;c) {
+    for(c = gc(); blank(c); c = gc());
+  }
+  inline void PUSH(const char &amp;c) {
+#if DEBUG
+    putchar(c);
+#else
+    if(pp - pbuf == MAXSIZE) {
+      fwrite(pbuf, 1, MAXSIZE, stdout);
+      pp = pbuf;
+    }
+    *pp++ = c;
+#endif
+  }
+  template &lt;class T&gt;
+  inline void WRITE(T x) {
+    if(x &lt; 0) {
+      x = -x;
+      PUSH('-');
+    }
+    static T sta[35];
+    T top = 0;
+    do {
+      sta[top++] = x % 10;
+      x /= 10;
+    } while(x);
+    while(top)
+      PUSH(sta[--top] + '0');
+  }
+  template &lt;class T&gt;
+  inline void WRITE(T x, char lastChar) {
+    WRITE(x);
+    PUSH(lastChar);
+  }
+} io;
+int n, a[210], sum[210];
+int f1[210][210], f2[210][210];
+int main() {
+  ll ans = 1ll &lt;&lt; 50;
+  read(n);
+  rep(i, 1, n) read(a[i]), a[i + n] = a[i];
+  rep(i, 1, n + n) sum[i] = sum[i - 1] + a[i];
+  rep(i, 1, 2 * n) rep(j, 1, 2 * n) {
+    if(i == j) f1[i][j] = 0;
+    else f1[i][j] = 1 &lt;&lt; 29;
+    f2[i][j] = 0;
+  }
+  rep(len, 1, n) {
+    rep(i, 1, n * 2 - len - 1) {
+      ri j = i + len - 1;
+      rep(k, i, j - 1) {
+        f1[i][j] = min(f1[i][j], f1[i][k] + f1[k + 1][j] + sum[j] - sum[i - 1]);
+        f2[i][j] = max(f2[i][j], f2[i][k] + f2[k + 1][j] + sum[j] - sum[i - 1]);
+      }
+    }
+  }
+  rep(i, 1, n) ans = min(ans, f1[i][i + n - 1]);
+  print(ans);
+  puts(&quot;&quot;);
+  ans = 0;
+  rep(i, 1, n) ans = max(ans, f2[i][i + n - 1]);
+  print(ans);
+}
+</code></pre>
+<p>注意初始化都要开到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">2\times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span></p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://fyc-1358.github.io/fyc_1358/Sol_LG3504/">
+              <h3 class="post-title">
+                洛谷P2504题解
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  积土成山，风雨兴焉；积水成渊，蛟龙生焉。
+  <a class="rss" href="https://fyc-1358.github.io/fyc_1358//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

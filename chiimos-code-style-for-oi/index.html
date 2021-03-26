@@ -1,20 +1,13 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chiimo&#39;s Code Style for OI | Chiimo&#39;s blog</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://fyc-1358.github.io//favicon.ico?v=1616761000544">
+<link rel="shortcut icon" href="http://fyc-1358.github.io//favicon.ico?v=1616761202009">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="http://fyc-1358.github.io//styles/main.css">
-
-
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="alternate" type="application/atom+xml" title="Chiimo&#39;s Code Style for OI | Chiimo&#39;s blog - Atom Feed" href="http://fyc-1358.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
@@ -25,78 +18,78 @@
 main 函数应该放置于整个程序末尾。
 应当使用 int 代替 b..." />
     <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="http://fyc-1358.github.io/">
-        <img src="http://fyc-1358.github.io//images/avatar.png?v=1616761000544" class="site-logo">
-        <h1 class="site-title">Chiimo&#39;s blog</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="http://fyc-1358.github.io/">
+  <img class="avatar" src="http://fyc-1358.github.io//images/avatar.png?v=1616761202009" alt="">
+  </a>
+  <h1 class="site-title">
+    Chiimo&#39;s blog
+  </h1>
+  <p class="site-description">
+    九死南荒吾不恨，兹游奇绝冠平生。
+  </p>
+  <div class="menu-container">
+    
       
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
+        <a href="/" class="menu">
+          首页
+        </a>
       
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
+    
       
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
+        <a href="/archives" class="menu">
+          归档
+        </a>
       
-    </div>
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
+  <div class="social-container">
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-        
-      
-    </div>
-    <div class="site-description">
-      九死南荒吾不恨，兹游奇绝冠平生。
-    </div>
-    <div class="site-footer">
-      积土成山，风雨兴焉；积水成渊，蛟龙生焉。 | <a class="rss" href="http://fyc-1358.github.io//atom.xml" target="_blank">RSS</a>
-    </div>
+    
   </div>
 </div>
 
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">Chiimo&#39;s Code Style for OI</h2>
-            <div class="post-date">26-02-2021</div>
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Chiimo&#39;s Code Style for OI
+            </h2>
+            <div class="post-info">
+              <span>
+                26-02-2021
+              </span>
+              <span>
+                10 min read
+              </span>
+              
+            </div>
             
-              <div class="feature-container" style="background-image: url('http://fyc-1358.github.io//post-images/chiimos-code-style-for-oi.png')">
-              </div>
+              <img class="post-feature-image" src="http://fyc-1358.github.io//post-images/chiimos-code-style-for-oi.png" alt="">
             
-            <div class="post-content" v-pre>
-              <h1 id="甲-概览">甲 概览</h1>
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h1 id="甲-概览">甲 概览</h1>
 <p>所有的 <code>#include</code> 指令必须放置于整个程序开头。</p>
 <p>不应该使用 <code>using namespace std;</code>。</p>
 <p>在必要时应该使用 <code>using foo::bar;</code>。</p>
@@ -383,36 +376,80 @@ int main() {
 }
 </code></pre>
 
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E7%94%B2-%E6%A6%82%E8%A7%88">甲 概览</a></li>
+<li><a href="#%E4%B9%99-%E9%A2%84%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4">乙 预编译指令</a></li>
+<li><a href="#%E4%B8%99-%E7%BC%A9%E8%BF%9B">丙 缩进</a></li>
+<li><a href="#%E4%B8%81-%E8%8A%B1%E6%8B%AC%E5%8F%B7">丁 花括号</a></li>
+<li><a href="#%E6%88%8A-%E8%A1%8C">戊 行</a></li>
+<li><a href="#%E5%B7%B1-%E5%87%BD%E6%95%B0">己 函数</a></li>
+<li><a href="#%E5%BA%9A-%E5%8F%98%E9%87%8F">庚 变量</a></li>
+<li><a href="#%E8%BE%9B-%E7%A9%BA%E6%A0%BC">辛 空格</a></li>
+<li><a href="#%E5%A3%AC-%E6%8C%87%E9%92%88%E4%B8%8E%E5%BC%95%E7%94%A8">壬 指针与引用</a></li>
+<li><a href="#%E7%99%B8-%E5%85%B6%E4%BB%96">癸 其他</a></li>
+<li><a href="#example-code">Example Code</a></li>
+</ul>
+
+              </div>
             </div>
-            
-            
-
-            
-
-          </div>
-
+          </article>
         </div>
+
+        
+
+        
+
+        <div class="site-footer">
+  积土成山，风雨兴焉；积水成渊，蛟龙生焉。
+  <a class="rss" href="http://fyc-1358.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
       </div>
     </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script type="application/javascript">
+    <script>
+      hljs.initHighlightingOnLoad()
 
-AOS.init();
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
 
-</script>
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
 
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
 
-
-
-
-
+    </script>
   </body>
 </html>

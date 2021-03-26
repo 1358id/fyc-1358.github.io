@@ -1,20 +1,13 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>洛谷P2504题解 | Chiimo&#39;s blog</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://fyc-1358.github.io//favicon.ico?v=1616761000544">
+<link rel="shortcut icon" href="http://fyc-1358.github.io//favicon.ico?v=1616761202009">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="http://fyc-1358.github.io//styles/main.css">
-
-
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="alternate" type="application/atom+xml" title="洛谷P2504题解 | Chiimo&#39;s blog - Atom Feed" href="http://fyc-1358.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
@@ -23,78 +16,90 @@
 他问的是能够在所有树上自由穿梭的猴子个数，那我只需要算出这张图上最小生成树中权值最大的边，和每个猴子的最大跳跃长度进行比较即可。
 因为我用的是 Kruscal\text{Kruscal}..." />
     <meta name="keywords" content="生成树,题解,图论" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="http://fyc-1358.github.io/">
-        <img src="http://fyc-1358.github.io//images/avatar.png?v=1616761000544" class="site-logo">
-        <h1 class="site-title">Chiimo&#39;s blog</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="http://fyc-1358.github.io/">
+  <img class="avatar" src="http://fyc-1358.github.io//images/avatar.png?v=1616761202009" alt="">
+  </a>
+  <h1 class="site-title">
+    Chiimo&#39;s blog
+  </h1>
+  <p class="site-description">
+    九死南荒吾不恨，兹游奇绝冠平生。
+  </p>
+  <div class="menu-container">
+    
       
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
+        <a href="/" class="menu">
+          首页
+        </a>
       
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
+    
       
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
+        <a href="/archives" class="menu">
+          归档
+        </a>
       
-    </div>
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
+  <div class="social-container">
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-        
-      
-    </div>
-    <div class="site-description">
-      九死南荒吾不恨，兹游奇绝冠平生。
-    </div>
-    <div class="site-footer">
-      积土成山，风雨兴焉；积水成渊，蛟龙生焉。 | <a class="rss" href="http://fyc-1358.github.io//atom.xml" target="_blank">RSS</a>
-    </div>
+    
   </div>
 </div>
 
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">洛谷P2504题解</h2>
-            <div class="post-date">20-03-2021</div>
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              洛谷P2504题解
+            </h2>
+            <div class="post-info">
+              <span>
+                20-03-2021
+              </span>
+              <span>
+                5 min read
+              </span>
+              
+                <a href="http://fyc-1358.github.io/e6SPeIFsH/" class="post-tag">
+                  # 生成树
+                </a>
+              
+                <a href="http://fyc-1358.github.io/uvVYmzxP4/" class="post-tag">
+                  # 题解
+                </a>
+              
+                <a href="http://fyc-1358.github.io/xglM2UxJm/" class="post-tag">
+                  # 图论
+                </a>
+              
+            </div>
             
-              <div class="feature-container" style="background-image: url('https://img.sukasuka.cn/data/posts/3602_207d024208b7c8bb.png')">
-              </div>
+              <img class="post-feature-image" src="https://img.sukasuka.cn/data/posts/3602_207d024208b7c8bb.png" alt="">
             
-            <div class="post-content" v-pre>
-              <p><a href="https://www.luogu.com.cn/problem/P2504">题目</a><br>
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p><a href="https://www.luogu.com.cn/problem/P2504">题目</a><br>
 瓶颈生成树的裸题。可以查看<a href="https://oi-wiki.org/graph/mst/#_17">这个</a>来获取更多信息。<br>
 他问的是能够在所有树上自由穿梭的猴子个数，那我只需要算出这张图上最小生成树中权值最大的边，和每个猴子的最大跳跃长度进行比较即可。<br>
 因为我用的是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>Kruscal</mtext></mrow><annotation encoding="application/x-tex">\text{Kruscal}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">Kruscal</span></span></span></span></span> 算法求最小生成树，所以可以保证我搞出来的那个最小生成树一定是这张图上的一个瓶颈生成树，所以我只需要记录我加进去的边中权值最大的那个（即我最后加的那条边）即可。复杂度 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mi>log</mi><mo>⁡</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2\log n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，可以通过本题。<br>
@@ -242,61 +247,76 @@ int main() {
 </code></pre>
 <p><code>kruscal</code>函数体内第谔行写了<code>rep(i,1,n)</code>调了半个小时。</p>
 
+              </div>
+              <div class="toc-container">
+                
+              </div>
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="http://fyc-1358.github.io/e6SPeIFsH/" class="tag">
-                    生成树
-                  </a>
-                
-                  <a href="http://fyc-1358.github.io/uvVYmzxP4/" class="tag">
-                    题解
-                  </a>
-                
-                  <a href="http://fyc-1358.github.io/xglM2UxJm/" class="tag">
-                    图论
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="http://fyc-1358.github.io/ABC132D_Sol/">
-                  <h3 class="post-title">
-                    ABC132D题解
-                  </h3>
-                </a>
-              </div>
-            
-
-            
-
-          </div>
-
+          </article>
         </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="http://fyc-1358.github.io/ABC132D_Sol/">
+              <h3 class="post-title">
+                ABC132D题解
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  积土成山，风雨兴焉；积水成渊，蛟龙生焉。
+  <a class="rss" href="http://fyc-1358.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
       </div>
     </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script type="application/javascript">
+    <script>
+      hljs.initHighlightingOnLoad()
 
-AOS.init();
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
 
-</script>
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
 
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
 
-
-
-
-
+    </script>
   </body>
 </html>

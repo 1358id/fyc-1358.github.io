@@ -1,120 +1,101 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    
-<meta charset="utf-8" >
+    <meta charset="utf-8" >
 
 <title>[Ynoi2011]初始化 题解 | Chiimo&#39;s blog</title>
-<meta name="description" content="九死南荒吾不恨，兹游奇绝冠平生。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://fyc-1358.github.io//favicon.ico?v=1616760681371">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="shortcut icon" href="http://fyc-1358.github.io//favicon.ico?v=1616760960201">
 <link rel="stylesheet" href="http://fyc-1358.github.io//styles/main.css">
 
 
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
 
+    <meta name="description" content="第一道Ynoi，纪念一下。
+众所周知，Ynoi会进行惨无人道的卡常操作，所以我们可以使用暴力去做Ynoi。
+于是乎，我们考虑分块+暴力。
+对于操作2，不难发现是道裸的分块，可以抄P3372的代码。
+对于操作1，我们秉持暴力的思想，直接暴力修..." />
+    <meta name="keywords" content="题解,分块,Ynoi,数据结构" />
   </head>
   <body>
     <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="http://fyc-1358.github.io/">
-        <img class="avatar" src="http://fyc-1358.github.io//images/avatar.png?v=1616760681371" alt="" width="32px" height="32px">
-      </a>
-      <a href="http://fyc-1358.github.io/">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="http://fyc-1358.github.io/">
+        <img src="http://fyc-1358.github.io//images/avatar.png?v=1616760960201" class="site-logo">
         <h1 class="site-title">Chiimo&#39;s blog</h1>
       </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
-    </div>
-  </div>
-</div>
-
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
+    <div>
       
         
-          <a href="/" class="menu purple-link">
+          <a href="/" class="site-nav">
             首页
           </a>
         
       
         
-          <a href="/archives" class="menu purple-link">
+          <a href="/archives" class="site-nav">
             归档
           </a>
         
       
         
-          <a href="/tags" class="menu purple-link">
+          <a href="/tags" class="site-nav">
             标签
           </a>
         
       
     </div>
   </div>
-</transition>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      九死南荒吾不恨，兹游奇绝冠平生。
+    </div>
+    <div class="site-footer">
+      积土成山，风雨兴焉；积水成渊，蛟龙生焉。 | <a class="rss" href="http://fyc-1358.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
 
 
-      <div class="content-container">
-        <div class="post-detail">
-          
-            <div class="feature-container" style="background-image: url('http://fyc-1358.github.io//post-images/Ynoi2011-initialization.png')">
-            </div>
-          
-          <h2 class="post-title">[Ynoi2011]初始化 题解</h2>
-          <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 27-02-2021</span>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">[Ynoi2011]初始化 题解</h2>
+            <div class="post-date">27-02-2021</div>
             
-              <span>
-                <i class="icon-pricetags-outline"></i>
-                
-                  <a href="http://fyc-1358.github.io/uvVYmzxP4/">
-                    题解
-                    
-                      ，
-                    
-                  </a>
-                
-                  <a href="http://fyc-1358.github.io/PlHhUicaj/">
-                    分块
-                    
-                      ，
-                    
-                  </a>
-                
-                  <a href="http://fyc-1358.github.io/GTvbd7_vVt/">
-                    Ynoi
-                    
-                      ，
-                    
-                  </a>
-                
-                  <a href="http://fyc-1358.github.io/a6vZMeH5um/">
-                    数据结构
-                    
-                  </a>
-                
-              </span>
+              <div class="feature-container" style="background-image: url('http://fyc-1358.github.io//post-images/Ynoi2011-initialization.png')">
+              </div>
             
-          </div>
-          <div class="post-content">
-            <p>第一道Ynoi，纪念一下。<br>
+            <div class="post-content" v-pre>
+              <p>第一道Ynoi，纪念一下。<br>
 <s>众所周知，Ynoi会进行惨无人道的卡常操作，所以我们可以使用暴力去做Ynoi。</s><br>
 于是乎，我们考虑分块+暴力。<br>
 对于操作2，不难发现是道裸的分块，可以抄P3372的代码。<br>
@@ -270,45 +251,51 @@ int main() {
 }
 </code></pre>
 
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="http://fyc-1358.github.io/uvVYmzxP4/" class="tag">
+                    题解
+                  </a>
+                
+                  <a href="http://fyc-1358.github.io/PlHhUicaj/" class="tag">
+                    分块
+                  </a>
+                
+                  <a href="http://fyc-1358.github.io/GTvbd7_vVt/" class="tag">
+                    Ynoi
+                  </a>
+                
+                  <a href="http://fyc-1358.github.io/a6vZMeH5um/" class="tag">
+                    数据结构
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="http://fyc-1358.github.io/testing_ground/">
+                  <h3 class="post-title">
+                    洛谷原试炼场
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
           </div>
+
         </div>
-
-        
-          <div class="next-post">
-            <a class="purple-link" href="http://fyc-1358.github.io/testing_ground/">
-              <h3 class="post-title">
-                下一篇：洛谷原试炼场
-              </h3>
-            </a>
-          </div>
-          
       </div>
-
-      
-
-      <div class="site-footer">
-  <div class="slogan">九死南荒吾不恨，兹游奇绝冠平生。</div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-  积土成山，风雨兴焉；积水成渊，蛟龙生焉。 | <a class="rss" href="http://fyc-1358.github.io//atom.xml" target="_blank">RSS</a>
-</div>
-
-
     </div>
-    <script type="application/javascript">
 
-hljs.initHighlightingOnLoad()
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
 
 var app = new Vue({
   el: '#app',
@@ -318,6 +305,8 @@ var app = new Vue({
 })
 
 </script>
+
+
 
 
 

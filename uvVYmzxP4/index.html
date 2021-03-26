@@ -1,435 +1,263 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    
-<meta charset="utf-8" >
+    <meta charset="utf-8" >
 
 <title>题解 | Chiimo&#39;s blog</title>
-<meta name="description" content="九死南荒吾不恨，兹游奇绝冠平生。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://fyc-1358.github.io//favicon.ico?v=1616760681371">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="shortcut icon" href="http://fyc-1358.github.io//favicon.ico?v=1616760960201">
 <link rel="stylesheet" href="http://fyc-1358.github.io//styles/main.css">
 
 
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
 
+    <meta name="description" content="九死南荒吾不恨，兹游奇绝冠平生。">
   </head>
   <body>
     <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="http://fyc-1358.github.io/">
-        <img class="avatar" src="http://fyc-1358.github.io//images/avatar.png?v=1616760681371" alt="" width="32px" height="32px">
-      </a>
-      <a href="http://fyc-1358.github.io/">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="http://fyc-1358.github.io/">
+        <img src="http://fyc-1358.github.io//images/avatar.png?v=1616760960201" class="site-logo">
         <h1 class="site-title">Chiimo&#39;s blog</h1>
       </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
-    </div>
-  </div>
-</div>
-
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
+    <div>
       
         
-          <a href="/" class="menu purple-link">
+          <a href="/" class="site-nav">
             首页
           </a>
         
       
         
-          <a href="/archives" class="menu purple-link">
+          <a href="/archives" class="site-nav">
             归档
           </a>
         
       
         
-          <a href="/tags" class="menu purple-link">
+          <a href="/tags" class="site-nav">
             标签
           </a>
         
       
     </div>
   </div>
-</transition>
-
-
-      <div class="content-container">
-
-        <div class="current-tag-container">
-          <h2 class="title">
-            <i class="icon icon-pricetags-outline"></i> 题解
-          </h2> 
-        </div>
-
-        
-<section class="post-item">
-    <div class="content">
-      <a href="http://fyc-1358.github.io/sol_lgP1880/">
-        <h2 class="post-title">洛谷P1880题解</h2>
-      </a>
-      <div class="post-abstract">
-        
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 21-03-2021</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="http://fyc-1358.github.io/zBNNIKoF0/">
-                DP
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://fyc-1358.github.io/uvVYmzxP4/">
-                题解
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-      <a href="http://fyc-1358.github.io/sol_lgP1880/">
-        <div class="feature-container" style="background-image: url('http://fyc-1358.github.io//post-images/sol_lgP1880.png')">
-        </div>
-      </a>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="http://fyc-1358.github.io/Sol_LG3504/">
-        <h2 class="post-title">洛谷P2504题解</h2>
-      </a>
-      <div class="post-abstract">
-        
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 20-03-2021</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="http://fyc-1358.github.io/e6SPeIFsH/">
-                生成树
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://fyc-1358.github.io/uvVYmzxP4/">
-                题解
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://fyc-1358.github.io/xglM2UxJm/">
-                图论
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-      <a href="http://fyc-1358.github.io/Sol_LG3504/">
-        <div class="feature-container" style="background-image: url('https://img.sukasuka.cn/data/posts/3602_207d024208b7c8bb.png')">
-        </div>
-      </a>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="http://fyc-1358.github.io/ABC132D_Sol/">
-        <h2 class="post-title">ABC132D题解</h2>
-      </a>
-      <div class="post-abstract">
-        
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 14-03-2021</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="http://fyc-1358.github.io/xzNUxC45p/">
-                数学
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://fyc-1358.github.io/uvVYmzxP4/">
-                题解
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-      <a href="http://fyc-1358.github.io/ABC132D_Sol/">
-        <div class="feature-container" style="background-image: url('http://fyc-1358.github.io//post-images/ABC132D_Sol.png')">
-        </div>
-      </a>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="http://fyc-1358.github.io/JOISC2019Day1T1_Sol/">
-        <h2 class="post-title">JOISC2019-試験 伪题解</h2>
-      </a>
-      <div class="post-abstract">
-        
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 14-03-2021</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="http://fyc-1358.github.io/uvVYmzxP4/">
-                题解
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-      <a href="http://fyc-1358.github.io/JOISC2019Day1T1_Sol/">
-        <div class="feature-container" style="background-image: url('http://fyc-1358.github.io//post-images/JOISC2019Day1T1_Sol.png')">
-        </div>
-      </a>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="http://fyc-1358.github.io/P2858_Sol/">
-        <h2 class="post-title">洛谷P2858题解</h2>
-      </a>
-      <div class="post-abstract">
-        
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 14-03-2021</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="http://fyc-1358.github.io/zBNNIKoF0/">
-                DP
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://fyc-1358.github.io/uvVYmzxP4/">
-                题解
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-      <a href="http://fyc-1358.github.io/P2858_Sol/">
-        <div class="feature-container" style="background-image: url('https://img.sukasuka.cn/data/posts/3976_f23de5d479745439.png')">
-        </div>
-      </a>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="http://fyc-1358.github.io/CF757B-solution/">
-        <h2 class="post-title">题解CF757B</h2>
-      </a>
-      <div class="post-abstract">
-        
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 13-03-2021</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="http://fyc-1358.github.io/xzNUxC45p/">
-                数学
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://fyc-1358.github.io/uvVYmzxP4/">
-                题解
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-      <a href="http://fyc-1358.github.io/CF757B-solution/">
-        <div class="feature-container" style="background-image: url('http://fyc-1358.github.io//post-images/CF757B-solution.png')">
-        </div>
-      </a>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="http://fyc-1358.github.io/AGC004c-Sol/">
-        <h2 class="post-title">题解AGC004C</h2>
-      </a>
-      <div class="post-abstract">
-        
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 07-03-2021</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="http://fyc-1358.github.io/uvVYmzxP4/">
-                题解
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://fyc-1358.github.io/GjtDAOws1p/">
-                构造
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-      <a href="http://fyc-1358.github.io/AGC004c-Sol/">
-        <div class="feature-container" style="background-image: url('http://fyc-1358.github.io//post-images/AGC004c-Sol.png')">
-        </div>
-      </a>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="http://fyc-1358.github.io/Ynoi2011-initialization/">
-        <h2 class="post-title">[Ynoi2011]初始化 题解</h2>
-      </a>
-      <div class="post-abstract">
-        
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 27-02-2021</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="http://fyc-1358.github.io/uvVYmzxP4/">
-                题解
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://fyc-1358.github.io/PlHhUicaj/">
-                分块
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://fyc-1358.github.io/GTvbd7_vVt/">
-                Ynoi
-                
-                  ，
-                
-              </a>
-            
-              <a href="http://fyc-1358.github.io/a6vZMeH5um/">
-                数据结构
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-      <a href="http://fyc-1358.github.io/Ynoi2011-initialization/">
-        <div class="feature-container" style="background-image: url('http://fyc-1358.github.io//post-images/Ynoi2011-initialization.png')">
-        </div>
-      </a>
-    
-  </section>
-
-
-<div class="pagination-container">
-  
-  
-</div>
-
-
-      </div>
-
-      <div class="site-footer">
-  <div class="slogan">九死南荒吾不恨，兹游奇绝冠平生。</div>
-  <div class="social-container">
-    
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+      
+    </div>
+    <div class="site-description">
+      九死南荒吾不恨，兹游奇绝冠平生。
+    </div>
+    <div class="site-footer">
+      积土成山，风雨兴焉；积水成渊，蛟龙生焉。 | <a class="rss" href="http://fyc-1358.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
   </div>
-  积土成山，风雨兴焉；积水成渊，蛟龙生焉。 | <a class="rss" href="http://fyc-1358.github.io//atom.xml" target="_blank">RSS</a>
 </div>
 
 
-    </div>
-    <script type="application/javascript">
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <h2 class="current-tag">标签: 题解</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="http://fyc-1358.github.io/sol_lgP1880/">
+                  <h2 class="post-title">洛谷P1880题解</h2>
+                </a>
+                <div class="post-date">
+                  21-03-2021
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="http://fyc-1358.github.io/sol_lgP1880/">
+                  <div class="feature-container" style="background-image: url('http://fyc-1358.github.io//post-images/sol_lgP1880.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="http://fyc-1358.github.io/Sol_LG3504/">
+                  <h2 class="post-title">洛谷P2504题解</h2>
+                </a>
+                <div class="post-date">
+                  20-03-2021
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="http://fyc-1358.github.io/Sol_LG3504/">
+                  <div class="feature-container" style="background-image: url('https://img.sukasuka.cn/data/posts/3602_207d024208b7c8bb.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="http://fyc-1358.github.io/ABC132D_Sol/">
+                  <h2 class="post-title">ABC132D题解</h2>
+                </a>
+                <div class="post-date">
+                  14-03-2021
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="http://fyc-1358.github.io/ABC132D_Sol/">
+                  <div class="feature-container" style="background-image: url('http://fyc-1358.github.io//post-images/ABC132D_Sol.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="http://fyc-1358.github.io/JOISC2019Day1T1_Sol/">
+                  <h2 class="post-title">JOISC2019-試験 伪题解</h2>
+                </a>
+                <div class="post-date">
+                  14-03-2021
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="http://fyc-1358.github.io/JOISC2019Day1T1_Sol/">
+                  <div class="feature-container" style="background-image: url('http://fyc-1358.github.io//post-images/JOISC2019Day1T1_Sol.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="http://fyc-1358.github.io/P2858_Sol/">
+                  <h2 class="post-title">洛谷P2858题解</h2>
+                </a>
+                <div class="post-date">
+                  14-03-2021
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="http://fyc-1358.github.io/P2858_Sol/">
+                  <div class="feature-container" style="background-image: url('https://img.sukasuka.cn/data/posts/3976_f23de5d479745439.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="http://fyc-1358.github.io/CF757B-solution/">
+                  <h2 class="post-title">题解CF757B</h2>
+                </a>
+                <div class="post-date">
+                  13-03-2021
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="http://fyc-1358.github.io/CF757B-solution/">
+                  <div class="feature-container" style="background-image: url('http://fyc-1358.github.io//post-images/CF757B-solution.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="http://fyc-1358.github.io/AGC004c-Sol/">
+                  <h2 class="post-title">题解AGC004C</h2>
+                </a>
+                <div class="post-date">
+                  07-03-2021
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="http://fyc-1358.github.io/AGC004c-Sol/">
+                  <div class="feature-container" style="background-image: url('http://fyc-1358.github.io//post-images/AGC004c-Sol.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="http://fyc-1358.github.io/Ynoi2011-initialization/">
+                  <h2 class="post-title">[Ynoi2011]初始化 题解</h2>
+                </a>
+                <div class="post-date">
+                  27-02-2021
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="http://fyc-1358.github.io/Ynoi2011-initialization/">
+                  <div class="feature-container" style="background-image: url('http://fyc-1358.github.io//post-images/Ynoi2011-initialization.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
 
-hljs.initHighlightingOnLoad()
+          <div class="pagination-container">
+  
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
 
 var app = new Vue({
   el: '#app',
@@ -439,6 +267,8 @@ var app = new Vue({
 })
 
 </script>
+
+
 
 
 

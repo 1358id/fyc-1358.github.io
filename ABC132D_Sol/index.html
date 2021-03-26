@@ -1,106 +1,101 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    
-<meta charset="utf-8" >
+    <meta charset="utf-8" >
 
 <title>ABC132D题解 | Chiimo&#39;s blog</title>
-<meta name="description" content="九死南荒吾不恨，兹游奇绝冠平生。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://fyc-1358.github.io//favicon.ico?v=1616760681371">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="shortcut icon" href="http://fyc-1358.github.io//favicon.ico?v=1616760960201">
 <link rel="stylesheet" href="http://fyc-1358.github.io//styles/main.css">
 
 
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
 
+    <meta name="description" content="题目
+数学题。
+我要把蓝色球分割成 iii 个块，那么红球相应的被分成 i+1i+1i+1 个块。
+这样就想到用隔板法。在篮球之间插 i−1i-1i−1 个板，在红球之间插 iii 个板。
+但是红球的两侧也可以放蓝球，所以我们把红球个数 +..." />
+    <meta name="keywords" content="数学,题解" />
   </head>
   <body>
     <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="http://fyc-1358.github.io/">
-        <img class="avatar" src="http://fyc-1358.github.io//images/avatar.png?v=1616760681371" alt="" width="32px" height="32px">
-      </a>
-      <a href="http://fyc-1358.github.io/">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="http://fyc-1358.github.io/">
+        <img src="http://fyc-1358.github.io//images/avatar.png?v=1616760960201" class="site-logo">
         <h1 class="site-title">Chiimo&#39;s blog</h1>
       </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
-    </div>
-  </div>
-</div>
-
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
+    <div>
       
         
-          <a href="/" class="menu purple-link">
+          <a href="/" class="site-nav">
             首页
           </a>
         
       
         
-          <a href="/archives" class="menu purple-link">
+          <a href="/archives" class="site-nav">
             归档
           </a>
         
       
         
-          <a href="/tags" class="menu purple-link">
+          <a href="/tags" class="site-nav">
             标签
           </a>
         
       
     </div>
   </div>
-</transition>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      九死南荒吾不恨，兹游奇绝冠平生。
+    </div>
+    <div class="site-footer">
+      积土成山，风雨兴焉；积水成渊，蛟龙生焉。 | <a class="rss" href="http://fyc-1358.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
 
 
-      <div class="content-container">
-        <div class="post-detail">
-          
-            <div class="feature-container" style="background-image: url('http://fyc-1358.github.io//post-images/ABC132D_Sol.png')">
-            </div>
-          
-          <h2 class="post-title">ABC132D题解</h2>
-          <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 14-03-2021</span>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">ABC132D题解</h2>
+            <div class="post-date">14-03-2021</div>
             
-              <span>
-                <i class="icon-pricetags-outline"></i>
-                
-                  <a href="http://fyc-1358.github.io/xzNUxC45p/">
-                    数学
-                    
-                      ，
-                    
-                  </a>
-                
-                  <a href="http://fyc-1358.github.io/uvVYmzxP4/">
-                    题解
-                    
-                  </a>
-                
-              </span>
+              <div class="feature-container" style="background-image: url('http://fyc-1358.github.io//post-images/ABC132D_Sol.png')">
+              </div>
             
-          </div>
-          <div class="post-content">
-            <p><a href="https://atcoder.jp/contests/abc132/tasks/abc132_d">题目</a><br>
+            <div class="post-content" v-pre>
+              <p><a href="https://atcoder.jp/contests/abc132/tasks/abc132_d">题目</a><br>
 数学题。<br>
 我要把蓝色球分割成 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 个块，那么红球相应的被分成 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个块。<br>
 这样就想到用隔板法。在篮球之间插 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个板，在红球之间插 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 个板。<br>
@@ -121,45 +116,43 @@ int main() {
 }
 </code></pre>
 
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="http://fyc-1358.github.io/xzNUxC45p/" class="tag">
+                    数学
+                  </a>
+                
+                  <a href="http://fyc-1358.github.io/uvVYmzxP4/" class="tag">
+                    题解
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="http://fyc-1358.github.io/JOISC2019Day1T1_Sol/">
+                  <h3 class="post-title">
+                    JOISC2019-試験 伪题解
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
           </div>
+
         </div>
-
-        
-          <div class="next-post">
-            <a class="purple-link" href="http://fyc-1358.github.io/JOISC2019Day1T1_Sol/">
-              <h3 class="post-title">
-                下一篇：JOISC2019-試験 伪题解
-              </h3>
-            </a>
-          </div>
-          
       </div>
-
-      
-
-      <div class="site-footer">
-  <div class="slogan">九死南荒吾不恨，兹游奇绝冠平生。</div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-  积土成山，风雨兴焉；积水成渊，蛟龙生焉。 | <a class="rss" href="http://fyc-1358.github.io//atom.xml" target="_blank">RSS</a>
-</div>
-
-
     </div>
-    <script type="application/javascript">
 
-hljs.initHighlightingOnLoad()
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
 
 var app = new Vue({
   el: '#app',
@@ -169,6 +162,8 @@ var app = new Vue({
 })
 
 </script>
+
+
 
 
 

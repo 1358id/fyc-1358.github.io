@@ -1,106 +1,101 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    
-<meta charset="utf-8" >
+    <meta charset="utf-8" >
 
 <title>模拟退火学习笔记 | Chiimo&#39;s blog</title>
-<meta name="description" content="九死南荒吾不恨，兹游奇绝冠平生。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://fyc-1358.github.io//favicon.ico?v=1616760681371">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="shortcut icon" href="http://fyc-1358.github.io//favicon.ico?v=1616760960201">
 <link rel="stylesheet" href="http://fyc-1358.github.io//styles/main.css">
 
 
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
 
+    <meta name="description" content="此处我们以 [JSOI2004]平衡点 为例。
+这题是叫你在一个二维平面上找出若干个力的平衡点。
+由于不知道这个点在何处，所以考虑乱猜。
+但猜完以后我们需要找更优的解，这是可以考虑随机一个。
+这样的话，设猜的点坐标为 x,yx,yx,y ，..." />
+    <meta name="keywords" content="模拟退火,算法学习" />
   </head>
   <body>
     <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="http://fyc-1358.github.io/">
-        <img class="avatar" src="http://fyc-1358.github.io//images/avatar.png?v=1616760681371" alt="" width="32px" height="32px">
-      </a>
-      <a href="http://fyc-1358.github.io/">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="http://fyc-1358.github.io/">
+        <img src="http://fyc-1358.github.io//images/avatar.png?v=1616760960201" class="site-logo">
         <h1 class="site-title">Chiimo&#39;s blog</h1>
       </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
-    </div>
-  </div>
-</div>
-
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
+    <div>
       
         
-          <a href="/" class="menu purple-link">
+          <a href="/" class="site-nav">
             首页
           </a>
         
       
         
-          <a href="/archives" class="menu purple-link">
+          <a href="/archives" class="site-nav">
             归档
           </a>
         
       
         
-          <a href="/tags" class="menu purple-link">
+          <a href="/tags" class="site-nav">
             标签
           </a>
         
       
     </div>
   </div>
-</transition>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      九死南荒吾不恨，兹游奇绝冠平生。
+    </div>
+    <div class="site-footer">
+      积土成山，风雨兴焉；积水成渊，蛟龙生焉。 | <a class="rss" href="http://fyc-1358.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
 
 
-      <div class="content-container">
-        <div class="post-detail">
-          
-            <div class="feature-container" style="background-image: url('http://fyc-1358.github.io//post-images/simulated-annealing-note.png')">
-            </div>
-          
-          <h2 class="post-title">模拟退火学习笔记</h2>
-          <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 06-03-2021</span>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">模拟退火学习笔记</h2>
+            <div class="post-date">06-03-2021</div>
             
-              <span>
-                <i class="icon-pricetags-outline"></i>
-                
-                  <a href="http://fyc-1358.github.io/BGLboKGp_/">
-                    模拟退火
-                    
-                      ，
-                    
-                  </a>
-                
-                  <a href="http://fyc-1358.github.io/xhn-EezdHE/">
-                    算法学习
-                    
-                  </a>
-                
-              </span>
+              <div class="feature-container" style="background-image: url('http://fyc-1358.github.io//post-images/simulated-annealing-note.png')">
+              </div>
             
-          </div>
-          <div class="post-content">
-            <p>此处我们以 <a href="https://www.luogu.com.cn/problem/P1337">[JSOI2004]平衡点</a> 为例。<br>
+            <div class="post-content" v-pre>
+              <p>此处我们以 <a href="https://www.luogu.com.cn/problem/P1337">[JSOI2004]平衡点</a> 为例。<br>
 这题是叫你在一个二维平面上找出若干个力的平衡点。<br>
 由于不知道这个点在何处，所以考虑乱猜。<br>
 但猜完以后我们需要找更优的解，这是可以考虑随机一个。<br>
@@ -256,45 +251,43 @@ int main() {
 突然发现 CF2C 和这题是一道题，双倍经验，<s>但是懒得写</s>。<br>
 但是为什么这题是紫色的， CF2C 是蓝色的啊？</p>
 
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="http://fyc-1358.github.io/BGLboKGp_/" class="tag">
+                    模拟退火
+                  </a>
+                
+                  <a href="http://fyc-1358.github.io/xhn-EezdHE/" class="tag">
+                    算法学习
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="http://fyc-1358.github.io/Ynoi2011-initialization/">
+                  <h3 class="post-title">
+                    [Ynoi2011]初始化 题解
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
           </div>
+
         </div>
-
-        
-          <div class="next-post">
-            <a class="purple-link" href="http://fyc-1358.github.io/Ynoi2011-initialization/">
-              <h3 class="post-title">
-                下一篇：[Ynoi2011]初始化 题解
-              </h3>
-            </a>
-          </div>
-          
       </div>
-
-      
-
-      <div class="site-footer">
-  <div class="slogan">九死南荒吾不恨，兹游奇绝冠平生。</div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-  积土成山，风雨兴焉；积水成渊，蛟龙生焉。 | <a class="rss" href="http://fyc-1358.github.io//atom.xml" target="_blank">RSS</a>
-</div>
-
-
     </div>
-    <script type="application/javascript">
 
-hljs.initHighlightingOnLoad()
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
 
 var app = new Vue({
   el: '#app',
@@ -304,6 +297,8 @@ var app = new Vue({
 })
 
 </script>
+
+
 
 
 

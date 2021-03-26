@@ -1,120 +1,115 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    
-<meta charset="utf-8" >
+    <meta charset="utf-8" >
 
 <title>关于 | Chiimo&#39;s blog</title>
-<meta name="description" content="九死南荒吾不恨，兹游奇绝冠平生。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://fyc-1358.github.io//favicon.ico?v=1616760681371">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="shortcut icon" href="http://fyc-1358.github.io//favicon.ico?v=1616760960201">
 <link rel="stylesheet" href="http://fyc-1358.github.io//styles/main.css">
 
 
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
 
+    <meta name="description" content="This  is  chiimo!\frak{This\;is\;chiimo!}Thisischiimo!
+坐标 ZJ\tt{ZJ}ZJ ，是一名蒟蒻 OIer\tt{OIer}OIer 。
+どうぞよろしくお願いします\frak{どうぞよ..." />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="http://fyc-1358.github.io/">
-        <img class="avatar" src="http://fyc-1358.github.io//images/avatar.png?v=1616760681371" alt="" width="32px" height="32px">
-      </a>
-      <a href="http://fyc-1358.github.io/">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="http://fyc-1358.github.io/">
+        <img src="http://fyc-1358.github.io//images/avatar.png?v=1616760960201" class="site-logo">
         <h1 class="site-title">Chiimo&#39;s blog</h1>
       </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
-    </div>
-  </div>
-</div>
-
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
+    <div>
       
         
-          <a href="/" class="menu purple-link">
+          <a href="/" class="site-nav">
             首页
           </a>
         
       
         
-          <a href="/archives" class="menu purple-link">
+          <a href="/archives" class="site-nav">
             归档
           </a>
         
       
         
-          <a href="/tags" class="menu purple-link">
+          <a href="/tags" class="site-nav">
             标签
           </a>
         
       
     </div>
   </div>
-</transition>
-
-
-      <div class="content-container">
-        <div class="post-detail">
-          
-          <h2 class="post-title">关于</h2>
-          <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 25-01-2019</span>
-            
-          </div>
-          <div class="post-content">
-            <p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="fraktur">T</mi><mi mathvariant="fraktur">h</mi><mi mathvariant="fraktur">i</mi><mi mathvariant="fraktur">s</mi><mtext>  </mtext><mi mathvariant="fraktur">i</mi><mi mathvariant="fraktur">s</mi><mtext>  </mtext><mi mathvariant="fraktur">c</mi><mi mathvariant="fraktur">h</mi><mi mathvariant="fraktur">i</mi><mi mathvariant="fraktur">i</mi><mi mathvariant="fraktur">m</mi><mi mathvariant="fraktur">o</mi><mo>!</mo></mrow><annotation encoding="application/x-tex">\frak{This\;is\;chiimo!}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8835em;vertical-align:-0.18906em;"></span><span class="mord"><span class="mord mathfrak">T</span><span class="mord mathfrak">h</span><span class="mord mathfrak">i</span><span class="mord mathfrak">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathfrak">i</span><span class="mord mathfrak">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathfrak">c</span><span class="mord mathfrak">h</span><span class="mord mathfrak">i</span><span class="mord mathfrak">i</span><span class="mord mathfrak">m</span><span class="mord mathfrak">o</span><span class="mclose">!</span></span></span></span></span><br>
-坐标 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="monospace">Z</mi><mi mathvariant="monospace">J</mi></mrow><annotation encoding="application/x-tex">\tt{ZJ}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathtt">Z</span><span class="mord mathtt">J</span></span></span></span></span></span> ，是一名蒟蒻 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="monospace">O</mi><mi mathvariant="monospace">I</mi><mi mathvariant="monospace">e</mi><mi mathvariant="monospace">r</mi></mrow><annotation encoding="application/x-tex">\tt{OIer}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathtt">O</span><span class="mord mathtt">I</span><span class="mord mathtt">e</span><span class="mord mathtt">r</span></span></span></span></span></span> 。<br>
-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">ど</mi><mi mathvariant="normal">う</mi><mi mathvariant="normal">ぞ</mi><mi mathvariant="normal">よ</mi><mi mathvariant="normal">ろ</mi><mi mathvariant="normal">し</mi><mi mathvariant="normal">く</mi><mi mathvariant="normal">お</mi><mi mathvariant="normal">願</mi><mi mathvariant="normal">い</mi><mi mathvariant="normal">し</mi><mi mathvariant="normal">ま</mi><mi mathvariant="normal">す</mi></mrow><annotation encoding="application/x-tex">\frak{どうぞよろしくお願いします}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord"><span class="mord cjk_fallback">ど</span><span class="mord cjk_fallback">う</span><span class="mord cjk_fallback">ぞ</span><span class="mord cjk_fallback">よ</span><span class="mord cjk_fallback">ろ</span><span class="mord cjk_fallback">し</span><span class="mord cjk_fallback">く</span><span class="mord cjk_fallback">お</span><span class="mord cjk_fallback">願</span><span class="mord cjk_fallback">い</span><span class="mord cjk_fallback">し</span><span class="mord cjk_fallback">ま</span><span class="mord cjk_fallback">す</span></span></span></span></span>。</p>
-
-          </div>
-        </div>
-
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
         
-      </div>
-
       
-
-      <div class="site-footer">
-  <div class="slogan">九死南荒吾不恨，兹游奇绝冠平生。</div>
-  <div class="social-container">
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
-      
-    
+    </div>
+    <div class="site-description">
+      九死南荒吾不恨，兹游奇绝冠平生。
+    </div>
+    <div class="site-footer">
+      积土成山，风雨兴焉；积水成渊，蛟龙生焉。 | <a class="rss" href="http://fyc-1358.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
   </div>
-  积土成山，风雨兴焉；积水成渊，蛟龙生焉。 | <a class="rss" href="http://fyc-1358.github.io//atom.xml" target="_blank">RSS</a>
 </div>
 
 
-    </div>
-    <script type="application/javascript">
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">关于</h2>
+            <div class="post-date">25-01-2019</div>
+            
+            <div class="post-content" v-pre>
+              <p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="fraktur">T</mi><mi mathvariant="fraktur">h</mi><mi mathvariant="fraktur">i</mi><mi mathvariant="fraktur">s</mi><mtext>  </mtext><mi mathvariant="fraktur">i</mi><mi mathvariant="fraktur">s</mi><mtext>  </mtext><mi mathvariant="fraktur">c</mi><mi mathvariant="fraktur">h</mi><mi mathvariant="fraktur">i</mi><mi mathvariant="fraktur">i</mi><mi mathvariant="fraktur">m</mi><mi mathvariant="fraktur">o</mi><mo>!</mo></mrow><annotation encoding="application/x-tex">\frak{This\;is\;chiimo!}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8835em;vertical-align:-0.18906em;"></span><span class="mord"><span class="mord mathfrak">T</span><span class="mord mathfrak">h</span><span class="mord mathfrak">i</span><span class="mord mathfrak">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathfrak">i</span><span class="mord mathfrak">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathfrak">c</span><span class="mord mathfrak">h</span><span class="mord mathfrak">i</span><span class="mord mathfrak">i</span><span class="mord mathfrak">m</span><span class="mord mathfrak">o</span><span class="mclose">!</span></span></span></span></span><br>
+坐标 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="monospace">Z</mi><mi mathvariant="monospace">J</mi></mrow><annotation encoding="application/x-tex">\tt{ZJ}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathtt">Z</span><span class="mord mathtt">J</span></span></span></span></span></span> ，是一名蒟蒻 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="monospace">O</mi><mi mathvariant="monospace">I</mi><mi mathvariant="monospace">e</mi><mi mathvariant="monospace">r</mi></mrow><annotation encoding="application/x-tex">\tt{OIer}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathtt">O</span><span class="mord mathtt">I</span><span class="mord mathtt">e</span><span class="mord mathtt">r</span></span></span></span></span></span> 。<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">ど</mi><mi mathvariant="normal">う</mi><mi mathvariant="normal">ぞ</mi><mi mathvariant="normal">よ</mi><mi mathvariant="normal">ろ</mi><mi mathvariant="normal">し</mi><mi mathvariant="normal">く</mi><mi mathvariant="normal">お</mi><mi mathvariant="normal">願</mi><mi mathvariant="normal">い</mi><mi mathvariant="normal">し</mi><mi mathvariant="normal">ま</mi><mi mathvariant="normal">す</mi></mrow><annotation encoding="application/x-tex">\frak{どうぞよろしくお願いします}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord"><span class="mord cjk_fallback">ど</span><span class="mord cjk_fallback">う</span><span class="mord cjk_fallback">ぞ</span><span class="mord cjk_fallback">よ</span><span class="mord cjk_fallback">ろ</span><span class="mord cjk_fallback">し</span><span class="mord cjk_fallback">く</span><span class="mord cjk_fallback">お</span><span class="mord cjk_fallback">願</span><span class="mord cjk_fallback">い</span><span class="mord cjk_fallback">し</span><span class="mord cjk_fallback">ま</span><span class="mord cjk_fallback">す</span></span></span></span></span>。</p>
 
-hljs.initHighlightingOnLoad()
+            </div>
+            
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
 
 var app = new Vue({
   el: '#app',
@@ -124,6 +119,8 @@ var app = new Vue({
 })
 
 </script>
+
+
 
 
 
